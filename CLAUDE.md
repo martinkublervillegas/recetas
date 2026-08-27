@@ -13,9 +13,24 @@ recipes/[slug].html una receta por archivo, sin CSS inline
 assets/recipe.css   diseño de la vista de receta
 assets/index.css    diseño del índice
 assets/print.css    reglas @media print
+assets/icons/       íconos PWA (icon-192.png, icon-512.png, apple-touch-icon.png)
+manifest.json        manifest PWA — nombre, ícono, color, display standalone
+service-worker.js    cachea assets/páginas visitadas para acceso offline
 scripts/            dev-server, catalog, check, standalone
 export/             salidas de standalone (generado, no editar)
 ```
+
+## PWA
+
+`index.html` y cada `recipes/[slug].html` linkean `manifest.json` y registran
+`service-worker.js`. Toda receta nueva debe traer esos mismos tres tags en el
+`<head>` (ya están en el template del skill `receta-nueva`) — si se agregan a
+mano sin el skill, copiarlos de cualquier receta existente.
+
+El botón ★ "para cocinar pronto" funciona con o sin servidor: con `npm run dev`
+guarda en `recipes.json`; en GitHub Pages u otro estático guarda en
+`localStorage` del navegador (por dispositivo, no se sincroniza entre celu y
+PC).
 
 ## Convenciones
 
