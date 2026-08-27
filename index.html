@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Recetas</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/index.css" />
+</head>
+<body>
+
+  <div class="wrap">
+
+    <div class="index-header">
+      <h1 class="index-title">Recetas</h1>
+      <p class="index-count" id="count"></p>
+    </div>
+
+    <div class="cook-soon-shelf" id="soonShelf" hidden>
+      <div class="shelf-head">
+        <h2 class="shelf-title">★ Para cocinar pronto</h2>
+        <button class="shopping-toggle" id="shoppingToggle">Lista de compras</button>
+      </div>
+      <div class="shopping-list" id="shoppingList" hidden></div>
+      <div class="recipe-grid" id="soonGrid"></div>
+    </div>
+
+    <div class="controls">
+      <input class="search-input" id="search" type="search" placeholder="Buscar por nombre o etiqueta…" autocomplete="off" />
+      <select class="sort-select" id="sort">
+        <option value="recent">Más recientes</option>
+        <option value="oldest">Más antiguas</option>
+        <option value="az">A–Z</option>
+        <option value="za">Z–A</option>
+        <option value="source">Origen (A–Z)</option>
+      </select>
+      <button class="edit-toggle" id="editToggle" hidden>Editar etiquetas</button>
+      <span class="save-status" id="saveStatus"></span>
+    </div>
+
+    <div class="filters" id="filters"></div>
+
+    <div class="editor" id="editor" hidden></div>
+
+    <div class="recipe-grid" id="grid"></div>
+    <p class="empty-state" id="empty" hidden>No hay recetas que calcen con esa búsqueda.</p>
+
+  </div>
+
+  <!-- catalog:start — generado desde recipes.json por `npm run catalog`. No editar a mano. -->
+  <script type="application/json" id="catalog">{"tags":{"tipo":["sopa","pasta","guiso","noodles","ensalada","horno","dip"],"base":["vegetariano","cerdo","pollo","vacuno","pescado","legumbres"],"contexto":["rapido","para-invitados","para-guardar","despensa"]},"recipes":[{"slug":"minestrone-soup","title":"Easy Minestrone Soup","image":"https://static.wixstatic.com/media/89faea_4173a635e46a437480da58118392df3e~mv2.jpg/v1/fill/w_1200,h_800,al_c,q_85,usm_0.66_1.00_0.01/89faea_4173a635e46a437480da58118392df3e~mv2.jpg","time":{"label":"~55 min","minutes":55},"servings":"4–6","source":{"name":"Steve Cusato","from":"notanothercookingshow.tv","url":"https://www.notanothercookingshow.tv/post/minestrone-soup","type":"url"},"video":"https://www.youtube.com/watch?v=wo_cM9ICLb8","tags":["sopa","vegetariano","legumbres","para-guardar","despensa"],"language":"en","dateAdded":"2026-06-10","cookSoon":false,"ingredients":[{"item":"carrots","qty":2,"unit":null},{"item":"celery","qty":2,"unit":"stalk"},{"item":"onion","qty":1,"unit":null},{"item":"garlic","qty":6,"unit":"clove"},{"item":"kale","qty":6,"unit":"leaf"},{"item":"canned whole tomatoes","qty":800,"unit":"g"},{"item":"cannellini beans","qty":240,"unit":"ml"},{"item":"cabbage","qty":0.25,"unit":null},{"item":"broth or stock","qty":1000,"unit":"ml"},{"item":"Parmigiano","qty":1,"unit":"rind"},{"item":"bay leaf","qty":1,"unit":null},{"item":"thyme","qty":3,"unit":"sprig"},{"item":"chili flakes","qty":2,"unit":"tbsp"},{"item":"olive oil","qty":3,"unit":"tbsp"},{"item":"salt","qty":null,"unit":null},{"item":"black pepper","qty":null,"unit":null},{"item":"pancetta","qty":150,"unit":"g","optional":true},{"item":"ditalini","qty":90,"unit":"g"},{"item":"Parmesan","qty":null,"unit":null},{"item":"finishing olive oil","qty":null,"unit":null},{"item":"parsley","qty":null,"unit":null}]},{"slug":"courgette-caviar-rigatoni","title":"Courgette Caviar and Burrata Rigatoni","image":null,"time":{"label":"~70 min","minutes":70},"servings":"2","source":{"name":"Jesse Jenkins","from":"Cooking With Vegetables, p. 152–154","url":null,"type":"book"},"video":null,"tags":["pasta","vegetariano","para-invitados","para-guardar"],"language":"en","dateAdded":"2026-06-03","cookSoon":false,"ingredients":[{"item":"rigatoni","qty":200,"unit":"g"},{"item":"burrata","qty":2,"unit":null},{"item":"lemon","qty":0.5,"unit":null},{"item":"extra virgin olive oil","qty":null,"unit":null},{"item":"salt","qty":null,"unit":null},{"item":"courgettes","qty":1000,"unit":"g"},{"item":"extra virgin olive oil","qty":50,"unit":"ml"},{"item":"onions","qty":200,"unit":"g"},{"item":"tomatoes","qty":500,"unit":"g"},{"item":"white wine vinegar","qty":15,"unit":"ml"},{"item":"caster sugar","qty":12,"unit":"g"}]},{"slug":"mexican-pork-black-bean-stew","title":"Mexican Pork and Black Bean Stew","image":null,"time":{"label":"2 hrs 20 min","minutes":140},"servings":"8","source":{"name":"Glebe Kitchen","from":"glebekitchen.com","url":"https://glebekitchen.com/mexican-pork-and-black-bean-stew/","type":"url"},"video":null,"tags":["guiso","cerdo","legumbres","para-guardar","para-invitados"],"language":"en","dateAdded":"2026-06-09","cookSoon":false,"ingredients":[{"item":"boneless pork shoulder","qty":1800,"unit":"g"},{"item":"dried black beans","qty":450,"unit":"g"},{"item":"white onions","qty":2,"unit":null},{"item":"garlic","qty":8,"unit":"clove"},{"item":"canned fire roasted tomatoes","qty":794,"unit":"g"},{"item":"cumin","qty":2,"unit":"tsp"},{"item":"New Mexican red chili powder","qty":2,"unit":"tsp"},{"item":"salt","qty":2,"unit":"tsp"},{"item":"jalapeño","qty":75,"unit":"g"},{"item":"vegetable oil","qty":60,"unit":"ml"},{"item":"Mexican oregano","qty":0.5,"unit":"tsp"},{"item":"low sodium chicken stock","qty":950,"unit":"ml"},{"item":"lime","qty":0.5,"unit":null},{"item":"cilantro","qty":1,"unit":"handful"}]},{"slug":"scallion-oil-noodles","title":"Scallion Oil Noodles with Honey Soy Chicken","image":null,"time":{"label":"30 min","minutes":30},"servings":"2","source":null,"video":null,"tags":["noodles","pollo","rapido"],"language":"en","dateAdded":"2026-06-18","cookSoon":false,"ingredients":[{"item":"scallions","qty":6,"unit":null},{"item":"avocado oil","qty":30,"unit":"g"},{"item":"soy sauce","qty":1,"unit":"tbsp"},{"item":"dark soy sauce","qty":1,"unit":"tbsp"},{"item":"black vinegar","qty":1,"unit":"tbsp"},{"item":"honey","qty":15,"unit":"g"},{"item":"chicken mince","qty":400,"unit":"g"},{"item":"avocado oil","qty":1,"unit":"tsp"},{"item":"dark soy sauce","qty":1,"unit":"tbsp"},{"item":"honey","qty":15,"unit":"g"},{"item":"garlic","qty":1,"unit":"clove"},{"item":"Shaoxing wine","qty":1,"unit":"tbsp"},{"item":"frozen ramen noodles","qty":400,"unit":"g"},{"item":"Chinese broccoli or choy sum","qty":200,"unit":"g"},{"item":"spring onion","qty":null,"unit":null},{"item":"egg yolks","qty":2,"unit":null,"optional":true}]},{"slug":"brazilian-coconut-chickpea-curry","title":"Brazilian Coconut Chickpea Curry","image":"https://www.recipetineats.com/tachyon/2020/02/Brazilian-Chickpea-Curry_2.jpg","time":{"label":"25 min","minutes":25},"servings":"4","source":{"name":"Nagi Maehashi","from":"recipetineats.com","url":"https://www.recipetineats.com/brazilian-chickpea-curry/","type":"url"},"video":"https://www.youtube.com/watch?v=jpQoJTMMJoc","tags":["guiso","vegetariano","legumbres","rapido","para-guardar","despensa"],"language":"en","dateAdded":"2026-08-02","cookSoon":false,"ingredients":[{"item":"olive oil","qty":1.5,"unit":"tbsp"},{"item":"onion","qty":1,"unit":null},{"item":"garlic","qty":2,"unit":"clove"},{"item":"red bell pepper","qty":1,"unit":null},{"item":"chickpeas","qty":2,"unit":"can"},{"item":"coconut milk","qty":400,"unit":"ml"},{"item":"canned crushed tomato","qty":400,"unit":"ml"},{"item":"chicken or vegetable stock","qty":250,"unit":"ml"},{"item":"paprika","qty":1,"unit":"tbsp"},{"item":"cumin","qty":1,"unit":"tbsp"},{"item":"cayenne pepper","qty":1,"unit":"tsp"},{"item":"sugar","qty":1.5,"unit":"tsp"},{"item":"salt","qty":0.5,"unit":"tsp"},{"item":"baby spinach","qty":50,"unit":"g"},{"item":"cilantro","qty":3,"unit":"tbsp"},{"item":"lime juice","qty":1,"unit":"tbsp"},{"item":"yogurt","qty":null,"unit":null,"optional":true},{"item":"rice","qty":null,"unit":null}]},{"slug":"chicken-tikka-masala","title":"Chicken Tikka Masala","image":"https://www.recipetineats.com/tachyon/2018/04/Chicken-Tikka-Masala_0.jpg","time":{"label":"~1 hr","minutes":60},"servings":"4–5","source":{"name":"Nagi Maehashi","from":"recipetineats.com","url":"https://www.recipetineats.com/chicken-tikka-masala/","type":"url"},"video":"https://www.youtube.com/watch?v=yLAnwRl1Cas","tags":["guiso","pollo","para-invitados"],"language":"en","dateAdded":"2026-08-09","cookSoon":true,"ingredients":[{"item":"boneless skinless chicken thigh","qty":600,"unit":"g"},{"item":"full-fat plain yoghurt","qty":0.5,"unit":"cup"},{"item":"garlic","qty":6,"unit":"clove"},{"item":"fresh ginger","qty":1,"unit":"tbsp"},{"item":"garam masala","qty":1,"unit":"tsp"},{"item":"salt","qty":1,"unit":"tsp"},{"item":"cumin","qty":1,"unit":"tsp"},{"item":"ground coriander","qty":1,"unit":"tsp"},{"item":"paprika","qty":1,"unit":"tsp"},{"item":"vegetable oil","qty":1,"unit":"tbsp"},{"item":"cayenne pepper","qty":0.125,"unit":"tsp","optional":true},{"item":"black pepper","qty":1,"unit":"pinch"},{"item":"lemon juice","qty":2,"unit":"tsp"},{"item":"oil","qty":2,"unit":"tbsp"},{"item":"turmeric","qty":2,"unit":"tsp"},{"item":"garam masala","qty":1,"unit":"tbsp"},{"item":"ground coriander","qty":2,"unit":"tsp"},{"item":"cumin","qty":1,"unit":"tsp"},{"item":"cardamom powder","qty":0.125,"unit":"tsp"},{"item":"cayenne pepper","qty":0.125,"unit":"tsp"},{"item":"vegetable oil","qty":65,"unit":"ml"},{"item":"unsalted butter or ghee","qty":30,"unit":"g"},{"item":"onion","qty":1,"unit":null},{"item":"salt","qty":1,"unit":"tsp"},{"item":"fresh ginger","qty":2,"unit":"tbsp"},{"item":"garlic","qty":6,"unit":"clove"},{"item":"paprika","qty":1,"unit":"tbsp"},{"item":"tomato passata","qty":400,"unit":"ml"},{"item":"water","qty":400,"unit":"ml"},{"item":"cream","qty":100,"unit":"ml"},{"item":"sugar","qty":1,"unit":"tsp"},{"item":"unsalted butter or ghee","qty":50,"unit":"g"},{"item":"basmati rice","qty":null,"unit":null}]},{"slug":"kidney-bean-mushroom-bourguignon","title":"Kidney Bean and Mushroom Bourguignon","image":null,"time":{"label":"~35 min","minutes":35},"servings":"6","source":{"name":"Joe Yonan","from":"Cool Beans, p. 147–148","url":null,"type":"book"},"video":null,"tags":["guiso","vegetariano","legumbres"],"language":"en","dateAdded":"2026-08-02","cookSoon":false,"ingredients":[{"item":"butter","qty":28,"unit":"g"},{"item":"cremini mushrooms","qty":455,"unit":"g"},{"item":"shallots","qty":6,"unit":null},{"item":"carrots","qty":2,"unit":null},{"item":"garlic","qty":3,"unit":"clove"},{"item":"fresh rosemary","qty":2,"unit":"tsp"},{"item":"kosher salt","qty":0.5,"unit":"tsp"},{"item":"black pepper","qty":0.25,"unit":"tsp"},{"item":"flour","qty":1,"unit":"tbsp"},{"item":"dark red wine","qty":415,"unit":"ml"},{"item":"tomato paste","qty":1,"unit":"tbsp"},{"item":"red kidney beans","qty":2,"unit":"can"}]},{"slug":"harissa-roasted-carrot-white-bean-dip","title":"Harissa-Roasted Carrot and White Bean Dip","image":null,"time":{"label":"~35 min","minutes":35},"servings":"~2 cups","source":{"name":"Joe Yonan","from":"Cool Beans","url":null,"type":"book"},"video":null,"tags":["dip","vegetariano","legumbres","para-invitados","para-guardar"],"language":"en","dateAdded":"2026-08-09","cookSoon":false,"ingredients":[{"item":"carrots","qty":225,"unit":"g"},{"item":"harissa","qty":1,"unit":"tbsp"},{"item":"extra-virgin olive oil","qty":3,"unit":"tbsp"},{"item":"kosher salt","qty":0.5,"unit":"tsp"},{"item":"garlic","qty":5,"unit":"clove"},{"item":"white beans","qty":1,"unit":"can"},{"item":"mint","qty":0.25,"unit":"cup"},{"item":"lemon juice","qty":1,"unit":"tbsp"}]},{"slug":"tacu-tacu","title":"Peruvian Beans and Rice (Tacu Tacu)","image":null,"time":{"label":"~40 min","minutes":40},"servings":"2–4","source":{"name":"Joe Yonan","from":"Cool Beans","url":null,"type":"book"},"video":null,"tags":["vegetariano","legumbres","despensa"],"language":"en","dateAdded":"2026-08-09","cookSoon":false,"ingredients":[{"item":"red onion","qty":0.5,"unit":null},{"item":"cilantro","qty":2,"unit":"tbsp"},{"item":"lime juice","qty":2,"unit":"tbsp"},{"item":"aji amarillo paste","qty":0.25,"unit":"tsp"},{"item":"kosher salt","qty":0.25,"unit":"tsp"},{"item":"neutral vegetable oil","qty":3,"unit":"tbsp"},{"item":"red onion","qty":0.5,"unit":null},{"item":"garlic","qty":2,"unit":"clove"},{"item":"kosher salt","qty":0.5,"unit":"tsp"},{"item":"aji amarillo paste","qty":1,"unit":"tsp"},{"item":"canary beans","qty":2,"unit":"can"},{"item":"cooked white rice","qty":1,"unit":"cup"},{"item":"flat-leaf parsley","qty":1,"unit":"tbsp"},{"item":"fresh oregano","qty":1,"unit":"tbsp"},{"item":"lime","qty":1,"unit":null}]}]}</script>
+  <!-- catalog:end -->
+
+  <script>
+    const COMBINING = new RegExp('[\\u0300-\\u036f]', 'g');
+    const norm = s => (s || '').normalize('NFD').replace(COMBINING, '').toLowerCase();
+    const slugify = s => norm(s).trim().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+
+    const AXIS_LABELS = { tipo: 'Tipo', base: 'Base', contexto: 'Contexto' };
+
+    // Con el dev-server las marcas van a recipes.json; si no, a localStorage.
+    const HTTP = location.protocol === 'http:' || location.protocol === 'https:';
+    let SERVER = false;
+
+    let DATA = JSON.parse(document.getElementById('catalog').textContent);
+    const state = { query: '', tags: new Set(), sort: 'recent', editing: false, shopping: false };
+
+    const grid       = document.getElementById('grid');
+    const empty      = document.getElementById('empty');
+    const count      = document.getElementById('count');
+    const filters    = document.getElementById('filters');
+    const editor     = document.getElementById('editor');
+    const editToggle = document.getElementById('editToggle');
+    const saveStatus = document.getElementById('saveStatus');
+    const soonShelf  = document.getElementById('soonShelf');
+    const soonGrid   = document.getElementById('soonGrid');
+    const shoppingList   = document.getElementById('shoppingList');
+    const shoppingToggle = document.getElementById('shoppingToggle');
+
+    const STAR_SVG = '<svg width="15" height="15" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>';
+
+    /* ── Guardado ── */
+    let saveTimer = null;
+
+    function save() {
+      clearTimeout(saveTimer);
+      saveStatus.textContent = 'Guardando…';
+      saveStatus.className = 'save-status';
+      saveTimer = setTimeout(async () => {
+        try {
+          const res = await fetch('/api/catalog', {
+            method: 'PUT',
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify(DATA),
+          });
+          const body = await res.json();
+          if (!res.ok) {
+            saveStatus.textContent = (body.errors && body.errors.length ? body.errors : [body.error]).join(' · ');
+            saveStatus.className = 'save-status error';
+            return;
+          }
+          saveStatus.textContent = 'Guardado';
+          saveStatus.className = 'save-status ok';
+        } catch (err) {
+          saveStatus.textContent = 'No se pudo guardar: ' + err.message;
+          saveStatus.className = 'save-status error';
+        }
+      }, 400);
+    }
+
+    /* ── Guardado sin dev-server: las estrellas viven en este navegador ── */
+    const LOCAL_KEY = 'recetas:cook-soon';
+
+    function applyLocalSoon() {
+      let marked;
+      try {
+        const raw = localStorage.getItem(LOCAL_KEY);
+        if (!raw) return;
+        marked = new Set(JSON.parse(raw));
+      } catch {
+        return;
+      }
+      for (const r of DATA.recipes) r.cookSoon = marked.has(r.slug);
+    }
+
+    function saveLocal() {
+      const marked = DATA.recipes.filter(r => r.cookSoon).map(r => r.slug);
+      try {
+        localStorage.setItem(LOCAL_KEY, JSON.stringify(marked));
+        saveStatus.textContent = 'Guardado en este navegador';
+        saveStatus.className = 'save-status ok';
+      } catch {
+        saveStatus.textContent = 'Este navegador no deja guardar las marcas.';
+        saveStatus.className = 'save-status error';
+      }
+    }
+
+    /* ── Vocabulario ── */
+    const allTags = () => Object.values(DATA.tags).flat();
+
+    function addTag(axis, raw) {
+      const tag = slugify(raw);
+      if (!tag) return 'El nombre queda vacío.';
+      if (allTags().includes(tag)) return `"${tag}" ya existe.`;
+      DATA.tags[axis].push(tag);
+      return null;
+    }
+
+    function renameTag(axis, oldTag, raw) {
+      const tag = slugify(raw);
+      if (!tag) return 'El nombre queda vacío.';
+      if (tag === oldTag) return null;
+      if (allTags().includes(tag)) return `"${tag}" ya existe.`;
+      DATA.tags[axis][DATA.tags[axis].indexOf(oldTag)] = tag;
+      for (const r of DATA.recipes) {
+        const i = r.tags.indexOf(oldTag);
+        if (i !== -1) r.tags[i] = tag;
+      }
+      if (state.tags.delete(oldTag)) state.tags.add(tag);
+      return null;
+    }
+
+    function deleteTag(axis, tag) {
+      DATA.tags[axis].splice(DATA.tags[axis].indexOf(tag), 1);
+      for (const r of DATA.recipes) {
+        const i = r.tags.indexOf(tag);
+        if (i !== -1) r.tags.splice(i, 1);
+      }
+      state.tags.delete(tag);
+    }
+
+    function usageCount(tag) {
+      return DATA.recipes.filter(r => r.tags.includes(tag)).length;
+    }
+
+    /* ── Filtros ── */
+    function renderFilters() {
+      filters.replaceChildren();
+
+      for (const [axis, tags] of Object.entries(DATA.tags)) {
+        const row = document.createElement('div');
+        row.className = 'filter-axis';
+
+        const label = document.createElement('span');
+        label.className = 'axis-label';
+        label.textContent = AXIS_LABELS[axis] || axis;
+        row.appendChild(label);
+
+        for (const tag of tags) {
+          const chip = document.createElement('button');
+          chip.className = 'tag-chip' + (state.tags.has(tag) ? ' active' : '');
+          chip.textContent = tag;
+          chip.addEventListener('click', () => {
+            state.tags.has(tag) ? state.tags.delete(tag) : state.tags.add(tag);
+            renderFilters();
+            render();
+          });
+          row.appendChild(chip);
+        }
+        filters.appendChild(row);
+      }
+
+      if (state.tags.size) {
+        const clear = document.createElement('button');
+        clear.className = 'clear-filters';
+        clear.textContent = 'Limpiar filtros';
+        clear.addEventListener('click', () => {
+          state.tags.clear();
+          renderFilters();
+          render();
+        });
+        filters.appendChild(clear);
+      }
+    }
+
+    /* ── Editor de vocabulario ── */
+    function renderEditor() {
+      editor.replaceChildren();
+      if (!state.editing) return;
+
+      const intro = document.createElement('p');
+      intro.className = 'editor-intro';
+      intro.textContent = 'Click en una etiqueta para renombrarla, en × para borrarla. Los cambios se guardan solos en recipes.json.';
+      editor.appendChild(intro);
+
+      for (const [axis, tags] of Object.entries(DATA.tags)) {
+        const row = document.createElement('div');
+        row.className = 'editor-axis';
+
+        const label = document.createElement('span');
+        label.className = 'axis-label';
+        label.textContent = AXIS_LABELS[axis] || axis;
+        row.appendChild(label);
+
+        for (const tag of tags) {
+          const group = document.createElement('span');
+          group.className = 'editor-tag';
+
+          const name = document.createElement('button');
+          name.className = 'editor-tag-name';
+          name.textContent = tag;
+          name.title = 'Renombrar';
+          name.addEventListener('click', () => {
+            const nuevo = prompt(`Renombrar "${tag}" (se aplica a las ${usageCount(tag)} receta(s) que la usan):`, tag);
+            if (nuevo === null) return;
+            const err = renameTag(axis, tag, nuevo);
+            if (err) return alert(err);
+            renderAll();
+            save();
+          });
+
+          const del = document.createElement('button');
+          del.className = 'editor-tag-del';
+          del.textContent = '×';
+          del.title = 'Eliminar';
+          del.addEventListener('click', () => {
+            const n = usageCount(tag);
+            const msg = n
+              ? `¿Eliminar "${tag}"? Se va a quitar de ${n} receta(s).`
+              : `¿Eliminar "${tag}"?`;
+            if (!confirm(msg)) return;
+            deleteTag(axis, tag);
+            renderAll();
+            save();
+          });
+
+          group.append(name, del);
+          row.appendChild(group);
+        }
+
+        const add = document.createElement('button');
+        add.className = 'editor-add';
+        add.textContent = '+ nueva';
+        add.addEventListener('click', () => {
+          const nombre = prompt(`Nueva etiqueta en "${AXIS_LABELS[axis] || axis}":`);
+          if (nombre === null) return;
+          const err = addTag(axis, nombre);
+          if (err) return alert(err);
+          renderAll();
+          save();
+        });
+        row.appendChild(add);
+
+        editor.appendChild(row);
+      }
+    }
+
+    /* ── Grilla ── */
+    function matches(recipe) {
+      for (const tag of state.tags) {
+        if (!recipe.tags.includes(tag)) return false;
+      }
+      if (!state.query) return true;
+      const haystack = norm(recipe.title + ' ' + recipe.tags.join(' '));
+      return state.query.split(/\s+/).every(word => haystack.includes(word));
+    }
+
+    function sorted(list) {
+      const by = {
+        recent: (a, b) => b.dateAdded.localeCompare(a.dateAdded),
+        oldest: (a, b) => a.dateAdded.localeCompare(b.dateAdded),
+        az:     (a, b) => a.title.localeCompare(b.title, 'es'),
+        za:     (a, b) => b.title.localeCompare(a.title, 'es'),
+        source: (a, b) => {
+          const an = a.source && a.source.name;
+          const bn = b.source && b.source.name;
+          if (an && bn) return an.localeCompare(bn, 'es') || a.title.localeCompare(b.title, 'es');
+          if (an && !bn) return -1;
+          if (!an && bn) return 1;
+          return a.title.localeCompare(b.title, 'es');
+        },
+      };
+      return list.slice().sort(by[state.sort]);
+    }
+
+    function thumb(recipe) {
+      if (recipe.image) {
+        const img = document.createElement('img');
+        img.className = 'card-image';
+        img.src = recipe.image;
+        img.alt = recipe.title;
+        img.loading = 'lazy';
+        return img;
+      }
+      const ph = document.createElement('div');
+      ph.className = 'card-placeholder';
+      const span = document.createElement('span');
+      span.textContent = recipe.title;
+      ph.appendChild(span);
+      return ph;
+    }
+
+    function card(recipe) {
+      const el = document.createElement(state.editing ? 'div' : 'a');
+      el.className = 'recipe-card-link' + (state.editing ? ' editing' : '');
+      if (!state.editing) el.href = 'recipes/' + recipe.slug + '.html';
+
+      el.appendChild(thumb(recipe));
+
+      const star = document.createElement('button');
+      star.className = 'card-star' + (recipe.cookSoon ? ' active' : '');
+      star.innerHTML = STAR_SVG;
+      star.title = recipe.cookSoon ? 'Quitar de "cocinar pronto"' : 'Marcar para cocinar pronto';
+      star.addEventListener('click', e => {
+        e.preventDefault();
+        e.stopPropagation();
+        recipe.cookSoon = !recipe.cookSoon;
+        if (SERVER) save(); else saveLocal();
+        render();
+      });
+      el.appendChild(star);
+
+      const body = document.createElement('div');
+      body.className = 'card-body';
+
+      const title = document.createElement('h2');
+      title.className = 'card-title';
+      title.textContent = recipe.title;
+      body.appendChild(title);
+
+      if (state.editing) {
+        const open = document.createElement('a');
+        open.className = 'card-open';
+        open.href = 'recipes/' + recipe.slug + '.html';
+        open.textContent = 'Abrir receta →';
+        body.appendChild(open);
+
+        const chips = document.createElement('div');
+        chips.className = 'card-tags';
+        for (const tag of allTags()) {
+          const chip = document.createElement('button');
+          chip.className = 'card-tag-chip' + (recipe.tags.includes(tag) ? ' active' : '');
+          chip.textContent = tag;
+          chip.addEventListener('click', () => {
+            const i = recipe.tags.indexOf(tag);
+            i === -1 ? recipe.tags.push(tag) : recipe.tags.splice(i, 1);
+            chip.classList.toggle('active');
+            save();
+          });
+          chips.appendChild(chip);
+        }
+        body.appendChild(chips);
+      } else {
+        const meta = document.createElement('p');
+        meta.className = 'card-meta';
+        const time = document.createElement('span');
+        time.textContent = recipe.time.label;
+        const serves = document.createElement('span');
+        serves.textContent = recipe.servings + (recipe.servings === '1' ? ' porción' : ' porciones');
+        meta.append(time, serves);
+        if (recipe.source && recipe.source.name) {
+          const source = document.createElement('span');
+          source.textContent = recipe.source.name;
+          meta.appendChild(source);
+        }
+        body.appendChild(meta);
+      }
+
+      el.appendChild(body);
+      return el;
+    }
+
+    function render() {
+      const list = sorted(DATA.recipes.filter(matches));
+
+      grid.replaceChildren(...list.map(card));
+      empty.hidden = list.length > 0;
+
+      const total = DATA.recipes.length;
+      count.textContent = list.length === total
+        ? total + (total === 1 ? ' receta' : ' recetas')
+        : list.length + ' de ' + total;
+
+      renderShelf();
+    }
+
+    function renderShelf() {
+      const soon = sorted(DATA.recipes.filter(r => r.cookSoon));
+      soonGrid.replaceChildren(...soon.map(card));
+      soonShelf.hidden = state.editing || soon.length === 0;
+      renderShopping();
+    }
+
+    /* ── Lista de compras ──
+       Agrupa por ingrediente y suma solo lo que comparte unidad. Las unidades
+       distintas del mismo item quedan como sumandos separados (1 tbsp + 2 tsp):
+       combinarlas es un refinamiento pendiente, no se inventa la conversion. */
+    const FRACTIONS = { 0.125: '⅛', 0.25: '¼', 0.333: '⅓', 0.5: '½', 0.667: '⅔', 0.75: '¾' };
+
+    function fmtQty(n) {
+      if (n === null) return '';
+      const whole = Math.floor(n);
+      const glyph = FRACTIONS[+(n - whole).toFixed(3)];
+      if (glyph) return (whole || '') + glyph;
+      return String(+n.toFixed(2));
+    }
+
+    function shoppingItems() {
+      const bag = new Map();
+      for (const r of DATA.recipes.filter(r => r.cookSoon)) {
+        for (const ing of r.ingredients) {
+          let entry = bag.get(ing.item);
+          if (!entry) {
+            entry = { item: ing.item, optional: true, parts: new Map(), recipes: new Set() };
+            bag.set(ing.item, entry);
+          }
+          // Opcional en una receta pero obligatorio en otra -> hay que comprarlo.
+          if (!ing.optional) entry.optional = false;
+          entry.recipes.add(r.title);
+
+          const unit = ing.unit || '';
+          const prev = entry.parts.get(unit);
+          if (prev === undefined) entry.parts.set(unit, ing.qty);
+          else entry.parts.set(unit, prev === null || ing.qty === null ? null : prev + ing.qty);
+        }
+      }
+      return [...bag.values()].sort((a, b) => a.item.localeCompare(b.item, 'es'));
+    }
+
+    function renderShopping() {
+      shoppingToggle.textContent = state.shopping ? 'Ocultar lista' : 'Lista de compras';
+      shoppingToggle.classList.toggle('active', state.shopping);
+      shoppingList.hidden = !state.shopping;
+      if (!state.shopping) return;
+
+      const items = shoppingItems();
+      shoppingList.replaceChildren();
+
+      const intro = document.createElement('p');
+      intro.className = 'shopping-intro';
+      intro.textContent = items.length + (items.length === 1 ? ' ingrediente' : ' ingredientes')
+        + ' de ' + DATA.recipes.filter(r => r.cookSoon).length + ' receta(s). '
+        + 'Los tildes no se guardan.';
+      shoppingList.appendChild(intro);
+
+      const ul = document.createElement('ul');
+      ul.className = 'shopping-items';
+
+      for (const entry of items) {
+        const li = document.createElement('li');
+        li.className = 'shopping-item';
+
+        const label = document.createElement('label');
+
+        const box = document.createElement('input');
+        box.type = 'checkbox';
+        box.addEventListener('change', () => label.classList.toggle('done', box.checked));
+        label.appendChild(box);
+
+        const qty = [...entry.parts.entries()]
+          .map(([unit, n]) => (fmtQty(n) + ' ' + unit).trim())
+          .filter(Boolean)
+          .join(' + ');
+
+        if (qty) {
+          const q = document.createElement('span');
+          q.className = 'shopping-qty';
+          q.textContent = qty;
+          label.appendChild(q);
+        }
+
+        const name = document.createElement('span');
+        name.className = 'shopping-name';
+        name.textContent = entry.item;
+        label.appendChild(name);
+
+        if (entry.optional) {
+          const opt = document.createElement('span');
+          opt.className = 'shopping-optional';
+          opt.textContent = 'opcional';
+          label.appendChild(opt);
+        }
+
+        const from = document.createElement('span');
+        from.className = 'shopping-from';
+        from.textContent = [...entry.recipes].join(' · ');
+        label.appendChild(from);
+
+        li.appendChild(label);
+        ul.appendChild(li);
+      }
+
+      shoppingList.appendChild(ul);
+    }
+
+    function renderAll() {
+      renderFilters();
+      renderEditor();
+      render();
+    }
+
+    /* ── Controles ── */
+    document.getElementById('search').addEventListener('input', e => {
+      state.query = norm(e.target.value);
+      render();
+    });
+    document.getElementById('sort').addEventListener('change', e => {
+      state.sort = e.target.value;
+      render();
+    });
+
+    shoppingToggle.addEventListener('click', () => {
+      state.shopping = !state.shopping;
+      renderShopping();
+    });
+
+    editToggle.addEventListener('click', () => {
+      state.editing = !state.editing;
+      editToggle.classList.toggle('active', state.editing);
+      editToggle.textContent = state.editing ? 'Listo' : 'Editar etiquetas';
+      editor.hidden = !state.editing;
+      if (!state.editing) saveStatus.textContent = '';
+      renderAll();
+    });
+
+    /* ── Arranque ── */
+    (async () => {
+      if (HTTP) {
+        try {
+          DATA = await (await fetch('/api/catalog')).json();
+          SERVER = true;
+          editToggle.hidden = false;
+        } catch {
+          // Servido por HTTP pero sin el dev-server: las etiquetas no se editan.
+        }
+      }
+      if (!SERVER) applyLocalSoon();
+      renderAll();
+    })();
+  </script>
+
+</body>
+</html>

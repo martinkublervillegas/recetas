@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<!-- lang: el de la fuente original ("en", "es", "it"…), no el tuyo. -->
+<html lang="[LANG]">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>[TITULO]</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/recipe.css" />
+  <link rel="stylesheet" href="../assets/print.css" media="print" />
+</head>
+<body>
+
+  <!-- ══ HERO — OPCIONAL: borrar los dos bloques si no hay foto.
+       Si hay foto, correr `npm run hero -- <url>` y dejar la variante que
+       indique, borrando la otra. No elegir a ojo. ══ -->
+
+  <!-- Variante A: foto horizontal de 1200px de ancho o mas -->
+  <div class="recipe-hero">
+    <img src="[URL_IMAGEN]" alt="[TITULO]" />
+  </div>
+
+  <!-- Variante B: foto vertical, o horizontal de menos de 1200px.
+       La misma URL va en las dos <img>: la primera es el fondo desenfocado. -->
+  <div class="recipe-hero recipe-hero--contained">
+    <img class="hero-backdrop" src="[URL_IMAGEN]" alt="" aria-hidden="true" />
+    <img src="[URL_IMAGEN]" alt="[TITULO]" />
+  </div>
+
+  <!-- ══ HEADER ══ -->
+  <div class="recipe-header">
+
+    <!-- ── FUENTE — OPCIONAL. Tres variantes: dejar UNA y borrar las otras dos ── -->
+
+    <!-- Variante A: la fuente es una URL -->
+    <a class="source-tag" href="[URL_FUENTE]" target="_blank" rel="noopener">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+        <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+      </svg>
+      [DOMINIO]
+    </a>
+
+    <!-- Variante B: la fuente es un libro o PDF escaneado.
+         Requiere ademas el bloque LIGHTBOX del final. -->
+    <button class="source-tag" onclick="document.getElementById('pdfLightbox').classList.add('open')">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+      </svg>
+      [LIBRO] — [AUTOR], p. [PAGINAS]
+    </button>
+
+    <!-- Variante C: no hay fuente rastreable -> borrar A, B y el lightbox. -->
+
+    <h1 class="recipe-title">[TITULO]</h1>
+
+    <!-- ── VIDEO — OPCIONAL: borrar si la receta no tiene video ── -->
+    <a class="video-link" href="https://www.youtube.com/watch?v=[VIDEO_ID]" target="_blank">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M21.8 8s-.2-1.4-.8-2c-.8-.8-1.6-.8-2-.9C16.4 5 12 5 12 5s-4.4 0-7 .1c-.4.1-1.2.1-2 .9-.6.6-.8 2-.8 2S2 9.6 2 11.2v1.5c0 1.6.2 3.2.2 3.2s.2 1.4.8 2c.8.8 1.8.8 2.2.8C6.8 19 12 19 12 19s4.4 0 7-.1c.4-.1 1.2-.1 2-.9.6-.6.8-2 .8-2s.2-1.6.2-3.2v-1.5C22 9.6 21.8 8 21.8 8zM9.7 14.5V9.4l5.4 2.6-5.4 2.5z"/>
+      </svg>
+      Watch on YouTube
+    </a>
+
+    <!-- ── META BAR — SIEMPRE. Time / Serves / Source.
+         Si no hay fuente, borrar ese meta-item y su divider (quedan 2). ── -->
+    <div class="meta-bar">
+      <div class="meta-item">
+        <span class="meta-label">Time</span>
+        <span class="meta-value">[TIEMPO]</span>
+      </div>
+      <div class="meta-divider"></div>
+      <div class="meta-item">
+        <span class="meta-label">Serves</span>
+        <span class="meta-value">[PORCIONES]</span>
+      </div>
+      <div class="meta-divider"></div>
+      <div class="meta-item">
+        <span class="meta-label">Source</span>
+        <span class="meta-value">[AUTOR]</span>
+      </div>
+    </div>
+
+    <!-- ── EXPORTAR PDF — SIEMPRE, tal cual ── -->
+    <button class="print-button" onclick="window.print()">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="6 9 6 2 18 2 18 9"/>
+        <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/>
+        <rect x="6" y="14" width="12" height="8"/>
+      </svg>
+      Exportar PDF
+    </button>
+
+  </div><!-- /recipe-header -->
+
+  <!-- ══ BODY ══ -->
+  <div class="recipe-card">
+
+    <!-- ── INGREDIENTES — SIEMPRE ── -->
+    <h2 class="section-title">Ingredients</h2>
+    <div class="ingredients-section">
+
+      <!-- SUBGRUPOS: solo si la receta original los tiene.
+           Si no los tiene, borrar los <p class="subgroup-label"> y dejar
+           una sola <ul class="ingredient-list">. -->
+      <p class="subgroup-label">[NOMBRE_SUBGRUPO]</p>
+      <ul class="ingredient-list">
+        <li>[CANTIDAD] [INGREDIENTE]</li>
+        <li>[CANTIDAD] [INGREDIENTE] <span class="ingredient-optional">(optional)</span></li>
+      </ul>
+
+    </div>
+
+    <!-- ── PASOS — SIEMPRE ── -->
+    <h2 class="section-title">Method</h2>
+    <div class="steps-section">
+
+      <div class="step">
+        <div class="step-number">1</div>
+        <div class="step-text">[PASO]</div>
+      </div>
+
+      <div class="step">
+        <div class="step-number">2</div>
+        <div class="step-text">[PASO]</div>
+      </div>
+
+    </div>
+
+    <!-- ── NOTAS — OPCIONAL: borrar el bloque si no hay notas.
+         author-note (→) = del autor original.
+         personal-note (✦) = de Martin. Nunca convertir una en otra. ── -->
+    <h2 class="section-title">Notes</h2>
+    <div class="notes-section">
+      <ul class="notes-list">
+        <li class="author-note">[NOTA_DEL_AUTOR]</li>
+        <li class="personal-note">[NOTA_DE_MARTIN]</li>
+      </ul>
+    </div>
+
+    <!-- ── NARRATIVA — OPCIONAL: un parrafo sobre de donde viene el plato
+         o que lo hace funcionar. NO es un resumen de los pasos.
+         Si no hay nada real que contar, borrar el bloque. ── -->
+    <p class="narrative">
+      [NARRATIVA]
+    </p>
+
+    <!-- ── FUENTE AL PIE — solo si hay fuente. Invisible en pantalla,
+         aparece al imprimir porque el <a href> pierde la URL en papel. ── -->
+    <p class="print-source">
+      <strong>Fuente:</strong> [AUTOR] — [DOMINIO_O_LIBRO]<br />
+      [URL_COMPLETA]
+    </p>
+
+  </div><!-- /recipe-card -->
+
+  <!-- ══ LIGHTBOX — solo con la variante B de fuente (libro/PDF).
+       Las paginas van incrustadas en base64. Borrar si no aplica. ══ -->
+  <div class="lightbox-overlay" id="pdfLightbox" onclick="if(event.target===this)this.classList.remove('open')">
+    <div class="lightbox-inner">
+      <div class="lightbox-header">
+        <span>[LIBRO] — pp. [PAGINAS]</span>
+        <button class="lightbox-close" onclick="document.getElementById('pdfLightbox').classList.remove('open')">✕</button>
+      </div>
+      <div class="lightbox-pages">
+        <img src="data:image/jpeg;base64,[BASE64]" alt="Page [N]" />
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

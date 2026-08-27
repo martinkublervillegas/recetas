@@ -1,0 +1,123 @@
+/* Reglas para imprimir / exportar a PDF.
+   Se carga con media="print", asi que no afecta la vista en pantalla. */
+
+@media print {
+
+  @page {
+    margin: 15mm;
+  }
+
+  body {
+    background: #fff;
+    color: #000;
+  }
+
+  /* ── Hero recortado a una franja ── */
+  .recipe-hero,
+  .recipe-hero img {
+    height: 150px;
+    max-height: 150px;
+  }
+
+  /* En la variante contenida el fondo desenfocado solo gasta tinta */
+  .recipe-hero--contained {
+    background: none;
+    height: 150px;
+  }
+  .recipe-hero--contained .hero-backdrop {
+    display: none;
+  }
+  .recipe-hero--contained img:not(.hero-backdrop) {
+    width: auto;
+    height: 150px;
+    object-fit: contain;
+  }
+
+  /* ── Fuera todo lo que no se puede clickear en papel ── */
+  .video-link,
+  .print-button,
+  .lightbox-overlay,
+  button.source-tag {
+    display: none !important;
+  }
+
+  /* ── Aprovechar el ancho de la pagina ── */
+  .recipe-header,
+  .recipe-card {
+    max-width: none;
+    margin: 0;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .recipe-header { padding-top: 16px; }
+  .recipe-card { padding-bottom: 0; }
+
+  .recipe-title { font-size: 1.9rem; }
+
+  /* ── Nada se corta a mitad de pagina ── */
+  .ingredients-section,
+  .notes-section,
+  .step,
+  .narrative,
+  .print-source {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  /* Un titulo de seccion nunca queda solo al pie */
+  .section-title {
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+  .ingredient-list li {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  /* ── Sin fondos: muchos navegadores no imprimen background por defecto,
+        asi que todo lo que dependia de un fondo pasa a borde o texto ── */
+  .ingredients-section {
+    background: none;
+    border: 1px solid #999;
+  }
+  .notes-section {
+    background: none;
+    border-left: 2px solid #666;
+    border-radius: 0;
+    padding-left: 16px;
+  }
+  .notes-list li { color: #000; }
+
+  .step-number {
+    background: none;
+    color: #000;
+    border: 1.5px solid #000;
+  }
+  .section-title {
+    color: #000;
+    border-bottom: 1px solid #999;
+  }
+  .meta-bar,
+  .narrative {
+    border-color: #999;
+  }
+  .meta-label,
+  .meta-value,
+  .narrative,
+  .ingredient-optional {
+    color: #000;
+  }
+
+  /* ── Fuente al pie, visible solo impresa ── */
+  .print-source {
+    display: block;
+    margin-top: 24px;
+    padding-top: 12px;
+    border-top: 1px solid #999;
+    font-size: 11px;
+    line-height: 1.6;
+    color: #333;
+  }
+  .print-source strong {
+    font-weight: 600;
+  }
+}

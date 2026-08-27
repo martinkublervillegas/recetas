@@ -1,0 +1,14 @@
+{
+  "name": "personal-recetas",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Coleccion personal de recetas en HTML",
+  "scripts": {
+    "dev": "node scripts/dev-server.mjs",
+    "catalog": "node scripts/build-index.mjs",
+    "check": "node scripts/check.mjs",
+    "hero": "node scripts/hero-check.mjs",
+    "standalone": "node scripts/standalone.mjs"
+  }
+}

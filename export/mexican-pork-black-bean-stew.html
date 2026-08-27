@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mexican Pork and Black Bean Stew</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --green:       #3a7d44;
+  --green-light: #eef5ef;
+  --text:        #1a1a1a;
+  --muted:       #6b7280;
+  --border:      #e5e7eb;
+  --card:        #ffffff;
+  --bg:          #fafaf8;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+/* ── HERO ── */
+.recipe-hero {
+  width: 100%;
+  max-height: 420px;
+  overflow: hidden;
+}
+.recipe-hero img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  display: block;
+}
+
+/* ── HEADER ── */
+.recipe-header {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 36px 24px 0;
+}
+
+.source-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 14px;
+  text-decoration: none;
+}
+.source-tag:hover { color: var(--green); }
+.source-tag svg { opacity: 0.55; }
+
+/* Variante fuente-PDF: el mismo tag, pero como <button> que abre el lightbox */
+button.source-tag {
+  background: none;
+  border: none;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.recipe-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.4rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--text);
+  margin-bottom: 10px;
+}
+
+/* ── VIDEO LINK ── */
+.video-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--green);
+  text-decoration: none;
+  margin-bottom: 28px;
+  padding: 6px 14px 6px 10px;
+  border: 1.5px solid var(--green);
+  border-radius: 20px;
+  transition: background 0.15s, color 0.15s;
+}
+.video-link:hover {
+  background: var(--green);
+  color: white;
+}
+.video-link svg { flex-shrink: 0; }
+
+/* ── EXPORTAR PDF ── */
+.print-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--muted);
+  background: none;
+  cursor: pointer;
+  margin-bottom: 28px;
+  padding: 6px 14px 6px 10px;
+  border: 1.5px solid var(--border);
+  border-radius: 20px;
+  transition: border-color 0.15s, color 0.15s;
+}
+.print-button:hover {
+  border-color: var(--green);
+  color: var(--green);
+}
+.print-button svg { flex-shrink: 0; }
+
+/* Bloque de fuente que solo aparece impreso (ver print.css) */
+.print-source { display: none; }
+
+/* ── META BAR ── */
+.meta-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 36px;
+}
+.meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  align-items: center;
+  flex: 1;
+}
+.meta-label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  font-weight: 500;
+}
+.meta-value {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+}
+.meta-divider {
+  width: 1px;
+  height: 32px;
+  background: var(--border);
+}
+
+/* ── CARD ── */
+.recipe-card {
+  max-width: 780px;
+  margin: 0 auto 64px;
+  padding: 0 24px;
+}
+
+/* ── SECTION TITLE ── */
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--green);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--green-light);
+}
+
+/* ── INGREDIENTS ── */
+.ingredients-section {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 28px;
+  margin-bottom: 32px;
+}
+.ingredient-list {
+  list-style: none;
+}
+.ingredient-list li {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding: 7px 0;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 15px;
+  line-height: 1.5;
+}
+.ingredient-list li:last-child { border-bottom: none; }
+.ingredient-list li::before {
+  content: '';
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--green);
+  flex-shrink: 0;
+  margin-top: 7px;
+}
+.ingredient-optional {
+  font-size: 12px;
+  color: var(--muted);
+  font-style: italic;
+  margin-left: 4px;
+}
+.subgroup-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  font-weight: 500;
+  margin: 18px 0 8px;
+}
+.subgroup-label:first-child { margin-top: 0; }
+
+/* ── STEPS ── */
+.steps-section { margin-bottom: 32px; }
+.step {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 24px;
+  align-items: flex-start;
+}
+.step-number {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  background: var(--green);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 14px;
+  margin-top: 1px;
+}
+.step-text {
+  font-size: 15px;
+  line-height: 1.75;
+  padding-top: 6px;
+}
+
+/* ── NOTES ── */
+.notes-section {
+  background: var(--green-light);
+  border-left: 3px solid var(--green);
+  border-radius: 0 8px 8px 0;
+  padding: 20px 24px;
+  margin-bottom: 32px;
+}
+.notes-list { list-style: none; }
+.notes-list li {
+  font-size: 14px;
+  line-height: 1.65;
+  padding: 6px 0;
+  padding-left: 22px;
+  position: relative;
+  color: #2d4a2d;
+}
+.notes-list li::before {
+  position: absolute;
+  left: 0;
+  color: var(--green);
+  font-size: 13px;
+}
+.notes-list li.author-note::before  { content: '→'; }
+.notes-list li.personal-note::before { content: '✦'; font-size: 11px; top: 9px; }
+
+/* ── NARRATIVE ── */
+.narrative {
+  font-style: italic;
+  color: var(--muted);
+  font-size: 14.5px;
+  line-height: 1.8;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+
+/* ── LIGHTBOX (solo recetas con fuente PDF/libro escaneado) ── */
+.lightbox-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+.lightbox-overlay.open { display: flex; }
+.lightbox-inner {
+  background: var(--card);
+  border-radius: 12px;
+  max-width: 600px;
+  width: 100%;
+  max-height: 88vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.lightbox-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+  color: var(--muted);
+  font-weight: 500;
+  flex-shrink: 0;
+}
+.lightbox-close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  color: var(--muted);
+  line-height: 1;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+.lightbox-close:hover { background: #f0f0f0; color: var(--text); }
+.lightbox-pages {
+  overflow-y: scroll;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex: 1 1 auto;
+  min-height: 0;
+}
+.lightbox-pages img {
+  width: 100%;
+  display: block;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+}
+</style>
+  <style media="print">
+/* Reglas para imprimir / exportar a PDF.
+   Se carga con media="print", asi que no afecta la vista en pantalla. */
+
+@media print {
+
+  @page {
+    margin: 15mm;
+  }
+
+  body {
+    background: #fff;
+    color: #000;
+  }
+
+  /* ── Hero recortado a una franja ── */
+  .recipe-hero,
+  .recipe-hero img {
+    height: 150px;
+    max-height: 150px;
+  }
+
+  /* ── Fuera todo lo que no se puede clickear en papel ── */
+  .video-link,
+  .print-button,
+  .lightbox-overlay,
+  button.source-tag {
+    display: none !important;
+  }
+
+  /* ── Aprovechar el ancho de la pagina ── */
+  .recipe-header,
+  .recipe-card {
+    max-width: none;
+    margin: 0;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .recipe-header { padding-top: 16px; }
+  .recipe-card { padding-bottom: 0; }
+
+  .recipe-title { font-size: 1.9rem; }
+
+  /* ── Nada se corta a mitad de pagina ── */
+  .ingredients-section,
+  .notes-section,
+  .step,
+  .narrative,
+  .print-source {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  /* Un titulo de seccion nunca queda solo al pie */
+  .section-title {
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+  .ingredient-list li {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  /* ── Sin fondos: muchos navegadores no imprimen background por defecto,
+        asi que todo lo que dependia de un fondo pasa a borde o texto ── */
+  .ingredients-section {
+    background: none;
+    border: 1px solid #999;
+  }
+  .notes-section {
+    background: none;
+    border-left: 2px solid #666;
+    border-radius: 0;
+    padding-left: 16px;
+  }
+  .notes-list li { color: #000; }
+
+  .step-number {
+    background: none;
+    color: #000;
+    border: 1.5px solid #000;
+  }
+  .section-title {
+    color: #000;
+    border-bottom: 1px solid #999;
+  }
+  .meta-bar,
+  .narrative {
+    border-color: #999;
+  }
+  .meta-label,
+  .meta-value,
+  .narrative,
+  .ingredient-optional {
+    color: #000;
+  }
+
+  /* ── Fuente al pie, visible solo impresa ── */
+  .print-source {
+    display: block;
+    margin-top: 24px;
+    padding-top: 12px;
+    border-top: 1px solid #999;
+    font-size: 11px;
+    line-height: 1.6;
+    color: #333;
+  }
+  .print-source strong {
+    font-weight: 600;
+  }
+}
+</style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="recipe-header">
+
+    <a class="source-tag" href="https://glebekitchen.com/mexican-pork-and-black-bean-stew/" target="_blank" rel="noopener">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+        <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+      </svg>
+      glebekitchen.com
+    </a>
+
+    <h1 class="recipe-title">Mexican Pork and Black Bean Stew</h1>
+
+    <!-- Meta bar -->
+    <div class="meta-bar">
+      <div class="meta-item">
+        <span class="meta-label">Time</span>
+        <span class="meta-value">2 hrs 20 min</span>
+      </div>
+      <div class="meta-divider"></div>
+      <div class="meta-item">
+        <span class="meta-label">Serves</span>
+        <span class="meta-value">8</span>
+      </div>
+      <div class="meta-divider"></div>
+      <div class="meta-item">
+        <span class="meta-label">Source</span>
+        <span class="meta-value">Glebe Kitchen</span>
+      </div>
+    </div>
+
+
+    <!-- Exportar PDF -->
+    <button class="print-button" onclick="window.print()">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="6 9 6 2 18 2 18 9"/>
+        <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/>
+        <rect x="6" y="14" width="12" height="8"/>
+      </svg>
+      Exportar PDF
+    </button>
+  </div><!-- /recipe-header -->
+
+  <!-- Body -->
+  <div class="recipe-card">
+
+    <!-- Ingredients -->
+    <h2 class="section-title">Ingredients</h2>
+    <div class="ingredients-section">
+      <ul class="ingredient-list">
+        <li>4 lbs (1.8 kg) boneless pork shoulder, cut into 1-inch cubes</li>
+        <li>2¼ cups (450 g) dried black beans — or 3 x 15 oz (425 g) cans, drained</li>
+        <li>2 large white onions, sliced into 1-inch thick slices</li>
+        <li>8 cloves garlic</li>
+        <li>1 x 28 oz (794 g) can fire roasted tomatoes</li>
+        <li>2 tsp cumin</li>
+        <li>2 tsp New Mexican red chili powder (any mild pure chili powder — cayenne is not mild)</li>
+        <li>2 tsp salt, plus more to taste</li>
+        <li>½ cup (75 g) diced jalapeño, seeded with all membranes removed</li>
+        <li>4 tbsp (60 ml) vegetable oil, plus more as needed</li>
+        <li>½ tsp Mexican oregano (do not substitute Italian oregano — if unavailable, leave it out)</li>
+        <li>4 cups (950 ml) low sodium chicken stock</li>
+        <li>Juice of ½ lime</li>
+        <li>1 handful chopped cilantro</li>
+      </ul>
+    </div>
+
+    <!-- Method -->
+    <h2 class="section-title">Method</h2>
+    <div class="steps-section">
+
+      <div class="step">
+        <div class="step-number">1</div>
+        <div class="step-text">If using dried black beans, cook until tender. In a pressure cooker with plenty of water, 22 minutes works well, followed by another 15–20 minutes of simmering until just tender. Canned beans are fine too.</div>
+      </div>
+
+      <div class="step">
+        <div class="step-number">2</div>
+        <div class="step-text">Heat the oil in a large (6–7 quart / 5.5–6.5 L) pot or Dutch oven. Brown the pork in batches — 3 or 4 batches for this amount. Don't crowd the pan; add more oil as needed. Remove the pork and set aside.</div>
+      </div>
+
+      <div class="step">
+        <div class="step-number">3</div>
+        <div class="step-text">While the pork browns, heat a comal or cast iron pan over medium heat. Dry roast the onion slices and garlic until a bit charred — not burned, just darkened and softened. This adds depth of flavour.</div>
+      </div>
+
+      <div class="step">
+        <div class="step-number">4</div>
+        <div class="step-text">Coarsely chop the onion. Add it to a blender along with the garlic, cumin, chili powder, Mexican oregano, salt, and half the tomatoes with half their juices. Purée until smooth. Put the tomatoes in the bottom of the blender first to help it along. Add a splash of water if needed.</div>
+      </div>
+
+      <div class="step">
+        <div class="step-number">5</div>
+        <div class="step-text">Top up the pot with oil to about 4 tbsp total if needed. Add the jalapeño and fry gently until softened, about 1 minute. Add the onion purée, turn the heat to medium, and fry for 6–7 minutes, stirring occasionally.</div>
+      </div>
+
+      <div class="step">
+        <div class="step-number">6</div>
+        <div class="step-text">Return the pork to the pot with any accumulated juices. Add the chicken stock. Dice the remaining tomatoes and add them — leave the remaining juice in the can. Reduce heat to low and simmer until the pork is tender, about 60–70 minutes.</div>
+      </div>
+
+      <div class="step">
+        <div class="step-number">7</div>
+        <div class="step-text">Add the black beans and simmer 10 minutes.</div>
+      </div>
+
+      <div class="step">
+        <div class="step-number">8</div>
+        <div class="step-text">Add a squeeze of lime and the cilantro and simmer another 5 minutes. Adjust salt — you'll likely need around another tsp.</div>
+      </div>
+
+      <div class="step">
+        <div class="step-number">9</div>
+        <div class="step-text">Serve with additional lime wedges, a bit of finely diced jalapeño, and corn tortillas.</div>
+      </div>
+
+    </div>
+
+    <!-- Notes -->
+    <h2 class="section-title">Notes</h2>
+    <div class="notes-section">
+      <ul class="notes-list">
+        <li class="author-note">Jalapeños vary a lot in heat. Most of it lives in the membranes — taste yours before adding the full amount and roll back if they're very hot.</li>
+        <li class="author-note">If you can, salt the pork liberally the night before. Not essential, but it makes a difference.</li>
+        <li class="author-note">The recipe calls for vegetable oil, but pork lard is the more traditional choice and worth using if you have it.</li>
+        <li class="author-note">Mexican oregano is not the same as Italian/European oregano — if you can't find it, simply leave it out rather than substituting.</li>
+        <li class="author-note">For fire roasted tomatoes, Muir Glen is recommended if available.</li>
+        <li class="personal-note">If fire roasted tomatoes aren't available, substitute with whole canned tomatoes or fresh tomatoes charred directly in a cast iron pan.</li>
+        <li class="personal-note">Add lemon zest for extra citrus flavour.</li>
+      </ul>
+    </div>
+
+    <!-- Narrative -->
+    <p class="narrative">
+      This recipe draws on old school Mexican cooking — the kind taught by Diana Kennedy and brought into focus by Rick Bayless. It's built on layered flavours: deeply browned pork, charred onions, earthy black beans, a touch of acid from the fire roasted tomatoes and lime, and bright notes from the cilantro and jalapeño. Not flashy, not much to look at — just really good in that sneak up on you sort of way.
+    </p>
+
+
+    <!-- Fuente al pie (solo visible impresa) -->
+    <p class="print-source">
+      <strong>Fuente:</strong> Glebe Kitchen<br />
+      https://glebekitchen.com/mexican-pork-and-black-bean-stew/
+    </p>
+  </div><!-- /recipe-card -->
+
+</body>
+</html>

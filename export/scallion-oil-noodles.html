@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scallion Oil Noodles with Honey Soy Chicken</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --green:       #3a7d44;
+  --green-light: #eef5ef;
+  --text:        #1a1a1a;
+  --muted:       #6b7280;
+  --border:      #e5e7eb;
+  --card:        #ffffff;
+  --bg:          #fafaf8;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+/* ── HERO ── */
+.recipe-hero {
+  width: 100%;
+  max-height: 420px;
+  overflow: hidden;
+}
+.recipe-hero img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  display: block;
+}
+
+/* ── HEADER ── */
+.recipe-header {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 36px 24px 0;
+}
+
+.source-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 14px;
+  text-decoration: none;
+}
+.source-tag:hover { color: var(--green); }
+.source-tag svg { opacity: 0.55; }
+
+/* Variante fuente-PDF: el mismo tag, pero como <button> que abre el lightbox */
+button.source-tag {
+  background: none;
+  border: none;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.recipe-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.4rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--text);
+  margin-bottom: 10px;
+}
+
+/* ── VIDEO LINK ── */
+.video-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--green);
+  text-decoration: none;
+  margin-bottom: 28px;
+  padding: 6px 14px 6px 10px;
+  border: 1.5px solid var(--green);
+  border-radius: 20px;
+  transition: background 0.15s, color 0.15s;
+}
+.video-link:hover {
+  background: var(--green);
+  color: white;
+}
+.video-link svg { flex-shrink: 0; }
+
+/* ── EXPORTAR PDF ── */
+.print-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--muted);
+  background: none;
+  cursor: pointer;
+  margin-bottom: 28px;
+  padding: 6px 14px 6px 10px;
+  border: 1.5px solid var(--border);
+  border-radius: 20px;
+  transition: border-color 0.15s, color 0.15s;
+}
+.print-button:hover {
+  border-color: var(--green);
+  color: var(--green);
+}
+.print-button svg { flex-shrink: 0; }
+
+/* Bloque de fuente que solo aparece impreso (ver print.css) */
+.print-source { display: none; }
+
+/* ── META BAR ── */
+.meta-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 36px;
+}
+.meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  align-items: center;
+  flex: 1;
+}
+.meta-label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  font-weight: 500;
+}
+.meta-value {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+}
+.meta-divider {
+  width: 1px;
+  height: 32px;
+  background: var(--border);
+}
+
+/* ── CARD ── */
+.recipe-card {
+  max-width: 780px;
+  margin: 0 auto 64px;
+  padding: 0 24px;
+}
+
+/* ── SECTION TITLE ── */
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--green);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--green-light);
+}
+
+/* ── INGREDIENTS ── */
+.ingredients-section {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 28px;
+  margin-bottom: 32px;
+}
+.ingredient-list {
+  list-style: none;
+}
+.ingredient-list li {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding: 7px 0;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 15px;
+  line-height: 1.5;
+}
+.ingredient-list li:last-child { border-bottom: none; }
+.ingredient-list li::before {
+  content: '';
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--green);
+  flex-shrink: 0;
+  margin-top: 7px;
+}
+.ingredient-optional {
+  font-size: 12px;
+  color: var(--muted);
+  font-style: italic;
+  margin-left: 4px;
+}
+.subgroup-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  font-weight: 500;
+  margin: 18px 0 8px;
+}
+.subgroup-label:first-child { margin-top: 0; }
+
+/* ── STEPS ── */
+.steps-section { margin-bottom: 32px; }
+.step {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 24px;
+  align-items: flex-start;
+}
+.step-number {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  background: var(--green);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 14px;
+  margin-top: 1px;
+}
+.step-text {
+  font-size: 15px;
+  line-height: 1.75;
+  padding-top: 6px;
+}
+
+/* ── NOTES ── */
+.notes-section {
+  background: var(--green-light);
+  border-left: 3px solid var(--green);
+  border-radius: 0 8px 8px 0;
+  padding: 20px 24px;
+  margin-bottom: 32px;
+}
+.notes-list { list-style: none; }
+.notes-list li {
+  font-size: 14px;
+  line-height: 1.65;
+  padding: 6px 0;
+  padding-left: 22px;
+  position: relative;
+  color: #2d4a2d;
+}
+.notes-list li::before {
+  position: absolute;
+  left: 0;
+  color: var(--green);
+  font-size: 13px;
+}
+.notes-list li.author-note::before  { content: '→'; }
+.notes-list li.personal-note::before { content: '✦'; font-size: 11px; top: 9px; }
+
+/* ── NARRATIVE ── */
+.narrative {
+  font-style: italic;
+  color: var(--muted);
+  font-size: 14.5px;
+  line-height: 1.8;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+
+/* ── LIGHTBOX (solo recetas con fuente PDF/libro escaneado) ── */
+.lightbox-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+.lightbox-overlay.open { display: flex; }
+.lightbox-inner {
+  background: var(--card);
+  border-radius: 12px;
+  max-width: 600px;
+  width: 100%;
+  max-height: 88vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.lightbox-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+  color: var(--muted);
+  font-weight: 500;
+  flex-shrink: 0;
+}
+.lightbox-close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  color: var(--muted);
+  line-height: 1;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+.lightbox-close:hover { background: #f0f0f0; color: var(--text); }
+.lightbox-pages {
+  overflow-y: scroll;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex: 1 1 auto;
+  min-height: 0;
+}
+.lightbox-pages img {
+  width: 100%;
+  display: block;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+}
+</style>
+  <style media="print">
+/* Reglas para imprimir / exportar a PDF.
+   Se carga con media="print", asi que no afecta la vista en pantalla. */
+
+@media print {
+
+  @page {
+    margin: 15mm;
+  }
+
+  body {
+    background: #fff;
+    color: #000;
+  }
+
+  /* ── Hero recortado a una franja ── */
+  .recipe-hero,
+  .recipe-hero img {
+    height: 150px;
+    max-height: 150px;
+  }
+
+  /* ── Fuera todo lo que no se puede clickear en papel ── */
+  .video-link,
+  .print-button,
+  .lightbox-overlay,
+  button.source-tag {
+    display: none !important;
+  }
+
+  /* ── Aprovechar el ancho de la pagina ── */
+  .recipe-header,
+  .recipe-card {
+    max-width: none;
+    margin: 0;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .recipe-header { padding-top: 16px; }
+  .recipe-card { padding-bottom: 0; }
+
+  .recipe-title { font-size: 1.9rem; }
+
+  /* ── Nada se corta a mitad de pagina ── */
+  .ingredients-section,
+  .notes-section,
+  .step,
+  .narrative,
+  .print-source {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  /* Un titulo de seccion nunca queda solo al pie */
+  .section-title {
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+  .ingredient-list li {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  /* ── Sin fondos: muchos navegadores no imprimen background por defecto,
+        asi que todo lo que dependia de un fondo pasa a borde o texto ── */
+  .ingredients-section {
+    background: none;
+    border: 1px solid #999;
+  }
+  .notes-section {
+    background: none;
+    border-left: 2px solid #666;
+    border-radius: 0;
+    padding-left: 16px;
+  }
+  .notes-list li { color: #000; }
+
+  .step-number {
+    background: none;
+    color: #000;
+    border: 1.5px solid #000;
+  }
+  .section-title {
+    color: #000;
+    border-bottom: 1px solid #999;
+  }
+  .meta-bar,
+  .narrative {
+    border-color: #999;
+  }
+  .meta-label,
+  .meta-value,
+  .narrative,
+  .ingredient-optional {
+    color: #000;
+  }
+
+  /* ── Fuente al pie, visible solo impresa ── */
+  .print-source {
+    display: block;
+    margin-top: 24px;
+    padding-top: 12px;
+    border-top: 1px solid #999;
+    font-size: 11px;
+    line-height: 1.6;
+    color: #333;
+  }
+  .print-source strong {
+    font-weight: 600;
+  }
+}
+</style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="recipe-header">
+
+    <h1 class="recipe-title">Scallion Oil Noodles with Honey Soy Chicken</h1>
+
+    <!-- Meta bar -->
+    <div class="meta-bar">
+      <div class="meta-item">
+        <span class="meta-label">Time</span>
+        <span class="meta-value">30 min</span>
+      </div>
+      <div class="meta-divider"></div>
+      <div class="meta-item">
+        <span class="meta-label">Serves</span>
+        <span class="meta-value">2</span>
+      </div>
+    </div>
+
+
+    <!-- Exportar PDF -->
+    <button class="print-button" onclick="window.print()">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="6 9 6 2 18 2 18 9"/>
+        <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/>
+        <rect x="6" y="14" width="12" height="8"/>
+      </svg>
+      Exportar PDF
+    </button>
+  </div><!-- /recipe-header -->
+
+  <!-- Body -->
+  <div class="recipe-card">
+
+    <!-- Ingredients -->
+    <h2 class="section-title">Ingredients</h2>
+    <div class="ingredients-section">
+
+      <p class="subgroup-label">Scallion oil sauce</p>
+      <ul class="ingredient-list">
+        <li>6 scallions</li>
+        <li>30 g avocado oil</li>
+        <li>1 tbsp soy sauce</li>
+        <li>1 tbsp dark soy sauce</li>
+        <li>1 tbsp black vinegar</li>
+        <li>15 g honey</li>
+      </ul>
+
+      <p class="subgroup-label">Honey soy chicken</p>
+      <ul class="ingredient-list">
+        <li>400 g 5% chicken mince</li>
+        <li>1 tsp avocado oil</li>
+        <li>1 tbsp dark soy sauce</li>
+        <li>15 g honey</li>
+        <li>1 garlic clove, grated</li>
+        <li>1 tbsp Shaoxing wine</li>
+      </ul>
+
+      <p class="subgroup-label">Noodles &amp; finish</p>
+      <ul class="ingredient-list">
+        <li>400 g frozen ramen noodles (e.g. Yutaka)</li>
+        <li>200 g Chinese broccoli or choy sum</li>
+        <li>Fresh spring onion, to finish</li>
+        <li>2 egg yolks <span class="ingredient-optional">(optional)</span></li>
+      </ul>
+
+    </div>
+
+    <!-- Method -->
+    <h2 class="section-title">Method</h2>
+    <div class="steps-section">
+
+      <div class="step">
+        <div class="step-number">1</div>
+        <div class="step-text">Bring a pan of salted water to the boil.</div>
+      </div>
+
+      <div class="step">
+        <div class="step-number">2</div>
+        <div class="step-text">Cut 4 scallions into 1-inch pieces and add to a sauce pan with the avocado oil. Set over low/medium heat until beginning to char. Add the soy sauce, dark soy and honey and simmer for 1 minute. Turn the heat off and add the vinegar, set aside. Finely slice the remaining spring onions and chop the broccoli into bite-sized pieces, set aside.</div>
+      </div>
+
+      <div class="step">
+        <div class="step-number">3</div>
+        <div class="step-text">Heat a large frying pan or wok over medium heat. Once hot, pour in the avocado oil. Add the chicken mince and cook over medium-high heat until it takes on some colour. Reduce the heat and add the dark soy, honey and grated garlic; reduce in the pan for a minute or two until glossy. Deglaze with the Shaoxing wine, remove from the pan and set aside.</div>
+      </div>
+
+      <div class="step">
+        <div class="step-number">4</div>
+        <div class="step-text">Blanch the greens for 2 minutes in the boiling water and set aside. Cook the noodles in the same pan, drain and add to the chicken pan. Pour over the scallion oil sauce and toss until evenly coated. If too sticky, add a little noodle water.</div>
+      </div>
+
+      <div class="step">
+        <div class="step-number">5</div>
+        <div class="step-text">Divide the noodles between two bowls, top with the chicken, chopped Chinese broccoli and a heap of sliced spring onions. Add an egg yolk if using. Mix in the bowl and enjoy.</div>
+      </div>
+
+    </div>
+
+  </div><!-- /recipe-card -->
+
+</body>
+</html>

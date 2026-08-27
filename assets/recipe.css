@@ -1,0 +1,370 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --green:       #3a7d44;
+  --green-light: #eef5ef;
+  --text:        #1a1a1a;
+  --muted:       #6b7280;
+  --border:      #e5e7eb;
+  --card:        #ffffff;
+  --bg:          #fafaf8;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+/* ── HERO ── */
+.recipe-hero {
+  width: 100%;
+  max-height: 420px;
+  overflow: hidden;
+}
+.recipe-hero img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Variante contenida: para fotos verticales o de menos de 1200px de ancho.
+   El full-bleed las recorta a una franja y las amplia, asi que salen borrosas.
+   Aca la foto se muestra entera a su proporcion, sobre una copia desenfocada
+   de si misma. Usar `npm run hero -- <url>` para saber cual corresponde. */
+.recipe-hero--contained {
+  position: relative;
+  height: 420px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--green-light);
+}
+.recipe-hero--contained .hero-backdrop {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(24px);
+  transform: scale(1.15);
+  opacity: 0.5;
+}
+.recipe-hero--contained img:not(.hero-backdrop) {
+  position: relative;
+  width: auto;
+  height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+/* ── HEADER ── */
+.recipe-header {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 36px 24px 0;
+}
+
+.source-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 14px;
+  text-decoration: none;
+}
+.source-tag:hover { color: var(--green); }
+.source-tag svg { opacity: 0.55; }
+
+/* Variante fuente-PDF: el mismo tag, pero como <button> que abre el lightbox */
+button.source-tag {
+  background: none;
+  border: none;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.recipe-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.4rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--text);
+  margin-bottom: 10px;
+}
+
+/* ── VIDEO LINK ── */
+.video-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--green);
+  text-decoration: none;
+  margin-bottom: 28px;
+  padding: 6px 14px 6px 10px;
+  border: 1.5px solid var(--green);
+  border-radius: 20px;
+  transition: background 0.15s, color 0.15s;
+}
+.video-link:hover {
+  background: var(--green);
+  color: white;
+}
+.video-link svg { flex-shrink: 0; }
+
+/* ── EXPORTAR PDF ── */
+.print-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--muted);
+  background: none;
+  cursor: pointer;
+  margin-bottom: 28px;
+  padding: 6px 14px 6px 10px;
+  border: 1.5px solid var(--border);
+  border-radius: 20px;
+  transition: border-color 0.15s, color 0.15s;
+}
+.print-button:hover {
+  border-color: var(--green);
+  color: var(--green);
+}
+.print-button svg { flex-shrink: 0; }
+
+/* Bloque de fuente que solo aparece impreso (ver print.css) */
+.print-source { display: none; }
+
+/* ── META BAR ── */
+.meta-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 36px;
+}
+.meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  align-items: center;
+  flex: 1;
+}
+.meta-label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  font-weight: 500;
+}
+.meta-value {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+}
+.meta-divider {
+  width: 1px;
+  height: 32px;
+  background: var(--border);
+}
+
+/* ── CARD ── */
+.recipe-card {
+  max-width: 780px;
+  margin: 0 auto 64px;
+  padding: 0 24px;
+}
+
+/* ── SECTION TITLE ── */
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--green);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--green-light);
+}
+
+/* ── INGREDIENTS ── */
+.ingredients-section {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 28px;
+  margin-bottom: 32px;
+}
+.ingredient-list {
+  list-style: none;
+}
+.ingredient-list li {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding: 7px 0;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 15px;
+  line-height: 1.5;
+}
+.ingredient-list li:last-child { border-bottom: none; }
+.ingredient-list li::before {
+  content: '';
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--green);
+  flex-shrink: 0;
+  margin-top: 7px;
+}
+.ingredient-optional {
+  font-size: 12px;
+  color: var(--muted);
+  font-style: italic;
+  margin-left: 4px;
+}
+.subgroup-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  font-weight: 500;
+  margin: 18px 0 8px;
+}
+.subgroup-label:first-child { margin-top: 0; }
+
+/* ── STEPS ── */
+.steps-section { margin-bottom: 32px; }
+.step {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 24px;
+  align-items: flex-start;
+}
+.step-number {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  background: var(--green);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 14px;
+  margin-top: 1px;
+}
+.step-text {
+  font-size: 15px;
+  line-height: 1.75;
+  padding-top: 6px;
+}
+
+/* ── NOTES ── */
+.notes-section {
+  background: var(--green-light);
+  border-left: 3px solid var(--green);
+  border-radius: 0 8px 8px 0;
+  padding: 20px 24px;
+  margin-bottom: 32px;
+}
+.notes-list { list-style: none; }
+.notes-list li {
+  font-size: 14px;
+  line-height: 1.65;
+  padding: 6px 0;
+  padding-left: 22px;
+  position: relative;
+  color: #2d4a2d;
+}
+.notes-list li::before {
+  position: absolute;
+  left: 0;
+  color: var(--green);
+  font-size: 13px;
+}
+.notes-list li.author-note::before  { content: '→'; }
+.notes-list li.personal-note::before { content: '✦'; font-size: 11px; top: 9px; }
+
+/* ── NARRATIVE ── */
+.narrative {
+  font-style: italic;
+  color: var(--muted);
+  font-size: 14.5px;
+  line-height: 1.8;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+
+/* ── LIGHTBOX (solo recetas con fuente PDF/libro escaneado) ── */
+.lightbox-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+.lightbox-overlay.open { display: flex; }
+.lightbox-inner {
+  background: var(--card);
+  border-radius: 12px;
+  max-width: 600px;
+  width: 100%;
+  max-height: 88vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.lightbox-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+  color: var(--muted);
+  font-weight: 500;
+  flex-shrink: 0;
+}
+.lightbox-close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  color: var(--muted);
+  line-height: 1;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+.lightbox-close:hover { background: #f0f0f0; color: var(--text); }
+.lightbox-pages {
+  overflow-y: scroll;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex: 1 1 auto;
+  min-height: 0;
+}
+.lightbox-pages img {
+  width: 100%;
+  display: block;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+}
