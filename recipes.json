@@ -1016,6 +1016,78 @@
           "unit": null
         }
       ]
+    },
+    {
+      "slug": "asparagus-ricotta-mint-tart",
+      "title": "Asparagus, Ricotta and Mint Tart",
+      "image": null,
+      "time": {
+        "label": "~45 min",
+        "minutes": 45
+      },
+      "servings": "4–6",
+      "source": {
+        "name": "Julius Roberts",
+        "from": "The Farm Table",
+        "url": null,
+        "type": "book"
+      },
+      "video": null,
+      "tags": [
+        "horno",
+        "vegetariano",
+        "para-invitados"
+      ],
+      "language": "en",
+      "dateAdded": "2026-08-28",
+      "cookSoon": false,
+      "ingredients": [
+        {
+          "item": "ricotta",
+          "qty": 250,
+          "unit": "g"
+        },
+        {
+          "item": "goat’s cheese",
+          "qty": 50,
+          "unit": "g"
+        },
+        {
+          "item": "lemon",
+          "qty": 1,
+          "unit": null
+        },
+        {
+          "item": "fresh mint",
+          "qty": 20,
+          "unit": "g"
+        },
+        {
+          "item": "fresh chives",
+          "qty": 20,
+          "unit": "g"
+        },
+        {
+          "item": "puff pastry",
+          "qty": 1,
+          "unit": null
+        },
+        {
+          "item": "asparagus",
+          "qty": 20,
+          "unit": null
+        },
+        {
+          "item": "olive oil",
+          "qty": null,
+          "unit": null
+        },
+        {
+          "item": "egg",
+          "qty": 1,
+          "unit": null
+        }
+      ]
     }
   ]
 }
