@@ -180,7 +180,7 @@
     {
       "slug": "courgette-caviar-rigatoni",
       "title": "Courgette Caviar and Burrata Rigatoni",
-      "image": null,
+      "image": "assets/heroes/courgette-caviar-rigatoni.jpg",
       "time": {
         "label": "~70 min",
         "minutes": 70
@@ -263,7 +263,7 @@
     {
       "slug": "mexican-pork-black-bean-stew",
       "title": "Mexican Pork and Black Bean Stew",
-      "image": null,
+      "image": "assets/heroes/mexican-pork-black-bean-stew.jpg",
       "time": {
         "label": "2 hrs 20 min",
         "minutes": 140
@@ -1040,7 +1040,7 @@
     {
       "slug": "asparagus-ricotta-mint-tart",
       "title": "Asparagus, Ricotta and Mint Tart",
-      "image": null,
+      "image": "assets/heroes/asparagus-ricotta-mint-tart.jpg",
       "time": {
         "label": "~45 min",
         "minutes": 45
@@ -1222,7 +1222,7 @@
     {
       "slug": "beetroot-soup-three-toppings",
       "title": "Beetroot Soup & Three Toppings",
-      "image": null,
+      "image": "assets/heroes/beetroot-soup-three-toppings.jpg",
       "time": {
         "label": "~1 h 20 min",
         "minutes": 80
