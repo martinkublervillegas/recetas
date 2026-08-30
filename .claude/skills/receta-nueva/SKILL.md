@@ -46,6 +46,25 @@ Después usa `Read` sobre cada PNG — el lector visual entiende ½, ¼, ¾ sin
 depender de ninguna tabla de codificación. Esto además te da las imágenes
 listas si la fuente es un libro y necesitas el lightbox (paso 4).
 
+**Antes de tratar un PDF como libro (fuente sin URL, con lightbox), revisa si
+es una página web impresa.** Un PDF exportado desde un blog o un Substack
+conserva los links de la página como anotaciones, y ahí suele estar la URL
+del post y la URL pública de las fotos en el CDN:
+
+```python
+import fitz
+doc = fitz.open("[ruta_del_pdf]")
+for i, page in enumerate(doc):
+    for l in page.get_links():
+        if l.get("uri"): print(i + 1, l["uri"])
+```
+
+Si aparece la URL del post, la fuente es **variante A (URL)**, no libro: no va
+lightbox, y la foto del hero sale del CDN en vez de ir incrustada en base64.
+Los CDN de newsletter sirven el original a tamaño completo (varios MB); busca
+la variante redimensionada que ya usa el sitio antes de medirla con
+`npm run hero`.
+
 Si la fuente trae una foto del plato utilizable, guarda su URL y **mídela antes
 de usarla** (regla 10):
 
@@ -100,6 +119,10 @@ se borran las otras.
 Al rellenar, ojo con:
 - Hero: dejar la variante que dijo `npm run hero`, borrar la otra (regla 10)
 - Cantidades: tres casos según cómo venga la fuente (regla 4)
+- Ingredientes: lee los pasos y compáralos con la lista. Si el método usa
+  algo que la lista no declara (vino blanco, un caldo alternativo), va a la
+  lista igual — con `ingredient-optional` si es alternativa a otro ingrediente
+  ya listado. La lista de la fuente suele estar incompleta; los pasos no.
 - Notas: `author-note` para el autor, `personal-note` para Martín (regla 5)
 - Subgrupos: solo si la fuente los tiene (regla 7)
 - Narrativa: solo si hay algo real que contar (regla 8)
@@ -181,6 +204,7 @@ dar la receta por lista.
 - [ ] Si hay hero: se corrió `npm run hero` y se usó la variante que indicó
 - [ ] Toda `<li>` de notas tiene `author-note` o `personal-note`
 - [ ] Opcionales con `<span class="ingredient-optional">`
+- [ ] Todo ingrediente que aparece en los pasos está en la lista de ingredientes
 - [ ] Subgrupos solo si existen en la fuente
 - [ ] Narrativa de un párrafo que no resume los pasos, o ausente
 
