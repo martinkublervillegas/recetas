@@ -19,6 +19,7 @@
     ],
     "ingrediente": [
       "aji-amarillo",
+      "betarraga",
       "burrata",
       "carne-molida",
       "cebollin",
@@ -29,6 +30,7 @@
       "hongos",
       "leche-de-coco",
       "lentejas-negras",
+      "papa",
       "pimenton-rojo",
       "pollo",
       "porotos-blancos",
@@ -1213,6 +1215,167 @@
         {
           "item": "lemon",
           "qty": 1,
+          "unit": null
+        }
+      ]
+    },
+    {
+      "slug": "beetroot-soup-three-toppings",
+      "title": "Beetroot Soup & Three Toppings",
+      "image": null,
+      "time": {
+        "label": "~1 h 20 min",
+        "minutes": 80
+      },
+      "servings": "8",
+      "source": {
+        "name": "Julius Roberts",
+        "from": "The Farm Table",
+        "url": null,
+        "type": "book"
+      },
+      "video": null,
+      "tags": [
+        "sopa",
+        "vegetariano",
+        "betarraga"
+      ],
+      "language": "en",
+      "dateAdded": "2026-08-30",
+      "cookSoon": false,
+      "ingredients": [
+        {
+          "item": "beetroots",
+          "qty": 1500,
+          "unit": "g"
+        },
+        {
+          "item": "cider vinegar",
+          "qty": 100,
+          "unit": "ml"
+        },
+        {
+          "item": "crème fraîche",
+          "qty": 200,
+          "unit": "ml"
+        },
+        {
+          "item": "salt",
+          "qty": null,
+          "unit": null
+        },
+        {
+          "item": "smoked eel",
+          "qty": null,
+          "unit": null,
+          "optional": true
+        },
+        {
+          "item": "horseradish sauce",
+          "qty": null,
+          "unit": null,
+          "optional": true
+        },
+        {
+          "item": "goat's cheese",
+          "qty": null,
+          "unit": null,
+          "optional": true
+        },
+        {
+          "item": "dill",
+          "qty": null,
+          "unit": null,
+          "optional": true
+        },
+        {
+          "item": "natural yoghurt",
+          "qty": null,
+          "unit": null,
+          "optional": true
+        },
+        {
+          "item": "cumin seeds",
+          "qty": null,
+          "unit": null,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "slug": "leek-and-potato-soup",
+      "title": "Leek and Potato Soup",
+      "image": null,
+      "time": {
+        "label": "~40 min",
+        "minutes": 40
+      },
+      "servings": "6",
+      "source": {
+        "name": "Heston Blumenthal",
+        "from": "Heston Blumenthal at Home",
+        "url": null,
+        "type": "book"
+      },
+      "video": null,
+      "tags": [
+        "sopa",
+        "vegetariano",
+        "puerro",
+        "papa"
+      ],
+      "language": "en",
+      "dateAdded": "2026-08-30",
+      "cookSoon": false,
+      "ingredients": [
+        {
+          "item": "waxy potatoes",
+          "qty": 180,
+          "unit": "g"
+        },
+        {
+          "item": "unsalted butter",
+          "qty": 120,
+          "unit": "g"
+        },
+        {
+          "item": "onion",
+          "qty": 200,
+          "unit": "g"
+        },
+        {
+          "item": "leek",
+          "qty": 750,
+          "unit": "g"
+        },
+        {
+          "item": "bouquet garni",
+          "qty": 1,
+          "unit": null
+        },
+        {
+          "item": "vegetable stock",
+          "qty": 1000,
+          "unit": "ml"
+        },
+        {
+          "item": "double cream",
+          "qty": 100,
+          "unit": "ml"
+        },
+        {
+          "item": "semi-skimmed milk",
+          "qty": 50,
+          "unit": "ml"
+        },
+        {
+          "item": "salt",
+          "qty": null,
+          "unit": null
+        },
+        {
+          "item": "chives",
+          "qty": null,
           "unit": null
         }
       ]
