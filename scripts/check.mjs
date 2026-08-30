@@ -26,7 +26,7 @@ if (errors.length) {
 }
 
 const usadas = new Set(catalog.recipes.flatMap(r => r.tags));
-const sinUsar = Object.values(catalog.tags).flat().filter(t => !usadas.has(t));
+const sinUsar = [...new Set(Object.values(catalog.tags).flat())].filter(t => !usadas.has(t));
 
 const ingredientes = catalog.recipes.reduce((n, r) => n + r.ingredients.length, 0);
 

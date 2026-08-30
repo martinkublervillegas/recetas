@@ -17,11 +17,28 @@
       "pescado",
       "legumbres"
     ],
-    "contexto": [
-      "rapido",
-      "para-invitados",
-      "para-guardar",
-      "despensa"
+    "ingrediente": [
+      "aji-amarillo",
+      "burrata",
+      "carne-molida",
+      "cebollin",
+      "cerdo",
+      "esparragos",
+      "garbanzos",
+      "harissa",
+      "hongos",
+      "leche-de-coco",
+      "lentejas-negras",
+      "pimenton-rojo",
+      "pollo",
+      "porotos-blancos",
+      "porotos-canarios",
+      "porotos-negros",
+      "porotos-rojos",
+      "puerro",
+      "ricotta",
+      "zanahoria",
+      "zapallo-italiano"
     ]
   },
   "recipes": [
@@ -44,9 +61,7 @@
       "tags": [
         "sopa",
         "vegetariano",
-        "legumbres",
-        "para-guardar",
-        "despensa"
+        "legumbres"
       ],
       "language": "en",
       "dateAdded": "2026-06-10",
@@ -179,8 +194,8 @@
       "tags": [
         "pasta",
         "vegetariano",
-        "para-invitados",
-        "para-guardar"
+        "zapallo-italiano",
+        "burrata"
       ],
       "language": "en",
       "dateAdded": "2026-06-03",
@@ -263,8 +278,7 @@
         "guiso",
         "cerdo",
         "legumbres",
-        "para-guardar",
-        "para-invitados"
+        "porotos-negros"
       ],
       "language": "en",
       "dateAdded": "2026-06-09",
@@ -356,7 +370,8 @@
       "tags": [
         "noodles",
         "pollo",
-        "rapido"
+        "carne-molida",
+        "cebollin"
       ],
       "language": "en",
       "dateAdded": "2026-06-18",
@@ -465,9 +480,9 @@
         "guiso",
         "vegetariano",
         "legumbres",
-        "rapido",
-        "para-guardar",
-        "despensa"
+        "garbanzos",
+        "leche-de-coco",
+        "pimenton-rojo"
       ],
       "language": "en",
       "dateAdded": "2026-08-02",
@@ -584,8 +599,7 @@
       "video": "https://www.youtube.com/watch?v=yLAnwRl1Cas",
       "tags": [
         "guiso",
-        "pollo",
-        "para-invitados"
+        "pollo"
       ],
       "language": "en",
       "dateAdded": "2026-08-09",
@@ -778,7 +792,9 @@
       "tags": [
         "guiso",
         "vegetariano",
-        "legumbres"
+        "legumbres",
+        "hongos",
+        "porotos-rojos"
       ],
       "language": "en",
       "dateAdded": "2026-08-02",
@@ -866,8 +882,9 @@
         "dip",
         "vegetariano",
         "legumbres",
-        "para-invitados",
-        "para-guardar"
+        "zanahoria",
+        "porotos-blancos",
+        "harissa"
       ],
       "language": "en",
       "dateAdded": "2026-08-09",
@@ -934,7 +951,8 @@
       "tags": [
         "vegetariano",
         "legumbres",
-        "despensa"
+        "porotos-canarios",
+        "aji-amarillo"
       ],
       "language": "en",
       "dateAdded": "2026-08-09",
@@ -1036,7 +1054,8 @@
       "tags": [
         "horno",
         "vegetariano",
-        "para-invitados"
+        "esparragos",
+        "ricotta"
       ],
       "language": "en",
       "dateAdded": "2026-08-28",
@@ -1084,6 +1103,115 @@
         },
         {
           "item": "egg",
+          "qty": 1,
+          "unit": null
+        }
+      ]
+    },
+    {
+      "slug": "braised-leeks-spicy-lentil-ragout",
+      "title": "Braised Leeks with Spicy Lentil Ragout",
+      "image": "https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F340919bb-6e47-4352-8ce3-f28694a1b23a_3024x4032.jpeg",
+      "time": {
+        "label": "~50 min",
+        "minutes": 50
+      },
+      "servings": "4",
+      "source": {
+        "name": "Jesse Jenkins",
+        "from": "kitchenstudio.substack.com",
+        "url": "https://kitchenstudio.substack.com/p/braised-leeks-with-spicy-ragout",
+        "type": "url"
+      },
+      "video": null,
+      "tags": [
+        "guiso",
+        "legumbres",
+        "puerro",
+        "lentejas-negras"
+      ],
+      "language": "en",
+      "dateAdded": "2026-08-30",
+      "cookSoon": false,
+      "ingredients": [
+        {
+          "item": "leeks",
+          "qty": 4,
+          "unit": null
+        },
+        {
+          "item": "carrots",
+          "qty": 2,
+          "unit": null
+        },
+        {
+          "item": "onion",
+          "qty": 1,
+          "unit": null
+        },
+        {
+          "item": "celery",
+          "qty": 2,
+          "unit": "stalk"
+        },
+        {
+          "item": "black lentils",
+          "qty": 200,
+          "unit": "g"
+        },
+        {
+          "item": "tomato paste",
+          "qty": 1,
+          "unit": "tbsp"
+        },
+        {
+          "item": "gochujang",
+          "qty": 1,
+          "unit": "tbsp"
+        },
+        {
+          "item": "stock",
+          "qty": 900,
+          "unit": "ml"
+        },
+        {
+          "item": "white wine",
+          "qty": null,
+          "unit": null,
+          "optional": true
+        },
+        {
+          "item": "sherry vinegar",
+          "qty": 1,
+          "unit": "tbsp"
+        },
+        {
+          "item": "unsalted butter",
+          "qty": 2,
+          "unit": "tbsp"
+        },
+        {
+          "item": "chives",
+          "qty": 1,
+          "unit": "handful"
+        },
+        {
+          "item": "crème fraîche",
+          "qty": null,
+          "unit": null
+        },
+        {
+          "item": "salt",
+          "qty": null,
+          "unit": null
+        },
+        {
+          "item": "black pepper",
+          "qty": null,
+          "unit": null
+        },
+        {
+          "item": "lemon",
           "qty": 1,
           "unit": null
         }

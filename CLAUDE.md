@@ -42,6 +42,47 @@ PC).
 - `recipes.json` lo escriben los scripts. Se puede editar a mano, pero después
   hay que correr `npm run catalog`.
 
+## Etiquetas
+
+El vocabulario vive en el bloque `tags` de `recipes.json` y es cerrado:
+`npm run check` falla si una receta usa una etiqueta que no está declarada. Son
+tres ejes:
+
+- **`tipo`** — el formato del plato: `sopa`, `pasta`, `guiso`, `noodles`,
+  `ensalada`, `horno`, `dip`. Normalmente uno por receta.
+- **`base`** — qué sostiene el plato: `vegetariano`, `pollo`, `cerdo`, `vacuno`,
+  `pescado`, `legumbres`. Es el grano grueso.
+- **`ingrediente`** — qué hay que comprar: los ingredientes protagonistas.
+  Vocabulario abierto, crece receta a receta.
+
+**Una misma etiqueta puede estar declarada en dos ejes.** `cerdo` es a la vez
+la base del plato y lo que se compra, y las dos preguntas son legítimas. Como
+`recipes[].tags` es una lista plana, la etiqueta se escribe una sola vez en la
+receta y sirve a los dos ejes; lo que el validador sí rechaza es repetirla
+dentro del mismo eje.
+
+Reglas del eje `ingrediente`:
+
+1. Solo protagonistas: el ingrediente que le da identidad al plato y por el que
+   uno buscaría la receta. Normalmente uno o dos, tres cuando el plato de
+   verdad los tiene (un dip de zanahoria, poroto y harissa), y puede no llevar
+   ninguno — un minestrone es la suma de sus verduras, no una de ellas.
+2. Nunca despensa básica (ajo, cebolla, sal, aceite, especias, caldo, limón).
+   Si se tiene siempre en la casa, no es etiqueta — son justo los que más se
+   repiten y por eso no sirven para filtrar. El criterio es si hay que salir a
+   comprarlo: la harissa entra, el comino no.
+3. Nombre canónico en español, minúsculas con guiones y sin tildes
+   (`esparragos`, `zapallo-italiano`, `leche-de-coco`), aunque la receta esté en
+   inglés y diga `asparagus`. La etiqueta existe para colapsar sinónimos y el
+   idioma de la fuente: un solo término por concepto.
+4. Precisar donde `base` generaliza. `base` dice `legumbres` y el ingrediente
+   dice cuál (`garbanzos`, `porotos-negros`, `porotos-canarios`); `base` dice
+   `pollo` y el ingrediente dice en qué formato se compra (`carne-molida`).
+   Repetir la etiqueta tal cual solo vale cuando no hay nada que precisar.
+
+Las etiquetas de `ingrediente` se deciden con Martín receta por receta — el
+skill `receta-nueva` pregunta antes de escribirlas.
+
 ## Comandos
 
 ```bash

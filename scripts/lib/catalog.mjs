@@ -33,13 +33,20 @@ export function validate(catalog) {
     return errors;
   }
 
+  // Una etiqueta puede vivir en dos ejes a la vez: "cerdo" es la base del plato
+  // y tambien lo que se compra. Lo que no puede es repetirse dentro de un eje.
   const vocab = new Set();
   for (const [axis, tags] of Object.entries(catalog.tags)) {
+    if (!Array.isArray(tags)) {
+      errors.push(`El eje "${axis}" no es una lista`);
+      continue;
+    }
+    const enEje = new Set();
     for (const tag of tags) {
-      if (vocab.has(tag)) errors.push(`La etiqueta "${tag}" esta repetida en mas de un eje`);
+      if (enEje.has(tag)) errors.push(`La etiqueta "${tag}" esta repetida dentro del eje "${axis}"`);
+      enEje.add(tag);
       vocab.add(tag);
     }
-    if (!Array.isArray(tags)) errors.push(`El eje "${axis}" no es una lista`);
   }
 
   const slugs = new Set();

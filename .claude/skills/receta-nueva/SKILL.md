@@ -106,11 +106,39 @@ Al rellenar, ojo con:
 
 ### 5. Actualizar el catálogo
 
-Agrega la entrada en `recipes.json`. Los tags salen del vocabulario que ya
-existe en el bloque `tags` del mismo archivo.
+Agrega la entrada en `recipes.json`. Los tags de `tipo` y `base` salen del
+vocabulario que ya existe en el bloque `tags` del mismo archivo.
 
-**Si ninguna etiqueta existente calza, pregúntale a Martín antes de crear una.**
-Sin eso, en seis meses hay `rapido`, `express` y `veloz` significando lo mismo.
+**Si ninguna etiqueta existente de `tipo` o `base` calza, pregúntale a Martín
+antes de crear una.** Sin eso, en seis meses hay `rapido`, `express` y `veloz`
+significando lo mismo.
+
+**El eje `ingrediente` se pregunta siempre, en toda receta.** Es el único que
+crece receta a receta, y Martín lo decide caso a caso. Antes de escribir la
+entrada, propónle uno o dos candidatos con su razón y espera respuesta — no lo
+completes por tu cuenta ni lo dejes vacío en silencio. Ejemplo:
+
+> Para el eje `ingrediente` propongo `esparragos` (es el protagonista y da
+> nombre al plato) y `ricotta` (500 g, sostiene el relleno). ¿Los dejo así,
+> agrego otro o lo dejo sin ingrediente?
+
+Las reglas del eje están en el CLAUDE.md del repo. Las cuatro que más se
+olvidan al proponer:
+
+- Solo protagonistas: uno o dos, tres si el plato de verdad los tiene, y
+  "ninguno" es una respuesta válida.
+- Nada de despensa básica. El criterio es si hay que salir a comprarlo: la
+  harissa entra, el comino no.
+- Nombre en español sin tildes aunque la fuente esté en inglés: `asparagus`
+  entra al catálogo como `esparragos`. Antes de inventar un término, revisa si
+  el concepto ya está en el vocabulario con otro nombre.
+- Precisa donde `base` generaliza: si `base` dice `legumbres`, el ingrediente
+  dice cuál (`garbanzos`, `porotos-negros`); si dice `pollo`, dice en qué
+  formato se compra (`carne-molida`). Una etiqueta puede vivir en los dos ejes
+  —`cerdo` es base e ingrediente— y en la receta se escribe una sola vez.
+
+La etiqueta nueva se agrega al array `tags.ingrediente` en el mismo commit, o
+`npm run check` falla.
 
 `dateAdded` es la fecha de hoy en `YYYY-MM-DD`. `cookSoon` arranca en `false`
 (lo marca Martín desde la app con la estrella).
@@ -159,7 +187,9 @@ dar la receta por lista.
 **Catálogo**
 - [ ] Entrada en `recipes.json` con todos los campos
 - [ ] `slug` idéntico al nombre del archivo
-- [ ] Tags del vocabulario existente, o consultados con Martín
+- [ ] Tags de `tipo` y `base` del vocabulario existente, o consultados con Martín
+- [ ] El eje `ingrediente` se le preguntó a Martín y él respondió (incluso si
+      la respuesta fue "ninguno")
 - [ ] `cookSoon` en `false`
 - [ ] `ingredients` completo, según la regla 12
 - [ ] Los `item` son nombres de compra, sin cantidad ni preparación
