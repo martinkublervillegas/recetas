@@ -30,34 +30,48 @@ body {
   display: block;
 }
 
-/* Variante contenida: para fotos verticales o de menos de 1200px de ancho.
-   El full-bleed las recorta a una franja y las amplia, asi que salen borrosas.
-   Aca la foto se muestra entera a su proporcion, sobre una copia desenfocada
-   de si misma. Usar `npm run hero -- <url>` para saber cual corresponde. */
-.recipe-hero--contained {
-  position: relative;
-  height: 420px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--green-light);
+/* ── PORTADA (fotos verticales) ──
+   La franja full-bleed de arriba sirve para fotos horizontales y anchas. Las
+   verticales — casi todas las que vienen de libros — quedaban como un pedacito
+   angosto en el medio de la banda. Aca la foto va al lado del titulo, a su
+   proporcion real, como abre la receta en el libro. Horizontal = .recipe-hero,
+   vertical = .recipe-opening. */
+.recipe-opening {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 36px 24px 32px;
+  display: grid;
+  grid-template-columns: minmax(0, 42%) minmax(0, 1fr);
+  gap: 32px;
+  align-items: start;
 }
-.recipe-hero--contained .hero-backdrop {
-  position: absolute;
-  inset: 0;
+.recipe-opening__photo img {
   width: 100%;
-  height: 100%;
+  max-height: 460px;
   object-fit: cover;
-  filter: blur(24px);
-  transform: scale(1.15);
-  opacity: 0.5;
+  border-radius: 3px;
+  display: block;
 }
-.recipe-hero--contained img:not(.hero-backdrop) {
-  position: relative;
-  width: auto;
-  height: 100%;
-  max-width: 100%;
-  object-fit: contain;
+/* Adentro de la grilla el header ya no se centra solo: la columna lo posiciona */
+.recipe-opening .recipe-header {
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+@media (max-width: 720px) {
+  .recipe-opening {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding: 0;
+  }
+  .recipe-opening__photo img {
+    max-height: 440px;
+    border-radius: 0;
+  }
+  .recipe-opening .recipe-header {
+    padding: 0 24px;
+  }
 }
 
 /* ── HEADER ── */

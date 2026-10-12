@@ -32,6 +32,7 @@
       "hongos",
       "leche-de-coco",
       "lentejas-negras",
+      "lentejas-puy",
       "papa",
       "pimenton-rojo",
       "pollo",
@@ -1708,6 +1709,115 @@
           "item": "feta",
           "qty": 60,
           "unit": "g"
+        }
+      ]
+    },
+    {
+      "slug": "puy-lentils-spinach-pancetta",
+      "title": "Puy Lentils with Spinach & Pancetta",
+      "image": "assets/heroes/puy-lentils-spinach-pancetta.jpg",
+      "time": {
+        "label": "~1 h",
+        "minutes": 60
+      },
+      "servings": "6",
+      "source": {
+        "name": "Julius Roberts",
+        "from": "The Farm Table",
+        "url": null,
+        "type": "book"
+      },
+      "video": null,
+      "tags": [
+        "guiso",
+        "legumbres",
+        "lentejas-puy",
+        "espinaca"
+      ],
+      "language": "en",
+      "dateAdded": "2026-10-12",
+      "cookSoon": false,
+      "ingredients": [
+        {
+          "item": "brown onion",
+          "qty": 1,
+          "unit": null
+        },
+        {
+          "item": "leek",
+          "qty": 1,
+          "unit": null
+        },
+        {
+          "item": "carrots",
+          "qty": 2,
+          "unit": null
+        },
+        {
+          "item": "celery",
+          "qty": 3,
+          "unit": "stalk"
+        },
+        {
+          "item": "olive oil",
+          "qty": 4,
+          "unit": "tbsp"
+        },
+        {
+          "item": "diced pancetta",
+          "qty": 150,
+          "unit": "g",
+          "optional": true
+        },
+        {
+          "item": "white wine",
+          "qty": null,
+          "unit": null
+        },
+        {
+          "item": "Puy lentils",
+          "qty": 500,
+          "unit": "g"
+        },
+        {
+          "item": "bay leaves",
+          "qty": 5,
+          "unit": "leaf"
+        },
+        {
+          "item": "fresh thyme",
+          "qty": null,
+          "unit": null
+        },
+        {
+          "item": "chicken stock",
+          "qty": 1000,
+          "unit": "ml"
+        },
+        {
+          "item": "spinach",
+          "qty": 500,
+          "unit": "g"
+        },
+        {
+          "item": "Dijon mustard",
+          "qty": 1,
+          "unit": "tbsp"
+        },
+        {
+          "item": "fresh parsley",
+          "qty": 1,
+          "unit": "handful"
+        },
+        {
+          "item": "salt",
+          "qty": null,
+          "unit": null
+        },
+        {
+          "item": "black pepper",
+          "qty": null,
+          "unit": null
         }
       ]
     }

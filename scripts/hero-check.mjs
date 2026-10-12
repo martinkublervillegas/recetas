@@ -62,11 +62,14 @@ if (fullBleed) {
   const motivo = !horizontal
     ? 'es vertical'
     : `mide ${width}px de ancho, menos de los ${MIN_ANCHO}px que necesita el full-bleed`;
-  console.log(`Variante: HERO CONTENIDO — ${motivo}.`);
-  console.log('  <div class="recipe-hero recipe-hero--contained">');
-  console.log('    <img class="hero-backdrop" src="..." alt="" aria-hidden="true" />');
-  console.log('    <img src="..." alt="..." />');
-  console.log('  </div>');
+  console.log(`Variante: PORTADA — ${motivo}.`);
+  console.log('  <div class="recipe-opening">');
+  console.log('    <div class="recipe-opening__photo">');
+  console.log('      <img src="..." alt="..." />');
+  console.log('    </div>');
   console.log();
-  console.log('  (la misma URL en las dos <img>: la primera es el fondo desenfocado)');
+  console.log('    <!-- el <div class="recipe-header"> va aca adentro -->');
+  console.log('  </div><!-- /recipe-opening -->');
+  console.log();
+  console.log('  (la foto queda al lado del titulo; en celular se apila arriba)');
 }

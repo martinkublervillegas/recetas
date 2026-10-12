@@ -19,18 +19,13 @@
     max-height: 150px;
   }
 
-  /* En la variante contenida el fondo desenfocado solo gasta tinta */
-  .recipe-hero--contained {
-    background: none;
-    height: 150px;
+  /* ── Portada vertical: en papel la foto no se lleva media hoja ── */
+  .recipe-opening {
+    padding-top: 0;
+    gap: 24px;
   }
-  .recipe-hero--contained .hero-backdrop {
-    display: none;
-  }
-  .recipe-hero--contained img:not(.hero-backdrop) {
-    width: auto;
-    height: 150px;
-    object-fit: contain;
+  .recipe-opening__photo img {
+    max-height: 180px;
   }
 
   /* ── Fuera todo lo que no se puede clickear en papel ── */
