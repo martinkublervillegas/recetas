@@ -25,6 +25,8 @@
       "cebollin",
       "cerdo",
       "esparragos",
+      "espinaca",
+      "feta",
       "garbanzos",
       "harissa",
       "hongos",
@@ -40,6 +42,7 @@
       "puerro",
       "ricotta",
       "zanahoria",
+      "zapallo",
       "zapallo-italiano"
     ]
   },
@@ -1377,6 +1380,334 @@
           "item": "chives",
           "qty": null,
           "unit": null
+        }
+      ]
+    },
+    {
+      "slug": "creamy-mushroom-spinach-orzo",
+      "title": "Creamy Mushroom and Spinach Orzo (Risoni)",
+      "image": "https://www.recipetineats.com/tachyon/2015/05/Spinach-Parmesan-Creamy-Risoni-1.jpg",
+      "time": {
+        "label": "30 min",
+        "minutes": 30
+      },
+      "servings": "4",
+      "source": {
+        "name": "Nagi Maehashi",
+        "from": "recipetineats.com",
+        "url": "https://www.recipetineats.com/creamy-mushroom-and-spinach-orzo-risoni-one-pot/",
+        "type": "url"
+      },
+      "video": null,
+      "tags": [
+        "pasta",
+        "hongos",
+        "espinaca"
+      ],
+      "language": "en",
+      "dateAdded": "2026-10-12",
+      "cookSoon": false,
+      "ingredients": [
+        {
+          "item": "olive oil",
+          "qty": 1,
+          "unit": "tbsp"
+        },
+        {
+          "item": "mushrooms",
+          "qty": 600,
+          "unit": "g"
+        },
+        {
+          "item": "butter",
+          "qty": 3,
+          "unit": "tbsp"
+        },
+        {
+          "item": "garlic",
+          "qty": 3,
+          "unit": "clove"
+        },
+        {
+          "item": "onion",
+          "qty": 1,
+          "unit": null
+        },
+        {
+          "item": "flour",
+          "qty": 3,
+          "unit": "tbsp"
+        },
+        {
+          "item": "milk",
+          "qty": 375,
+          "unit": "ml"
+        },
+        {
+          "item": "chicken broth",
+          "qty": 750,
+          "unit": "ml"
+        },
+        {
+          "item": "orzo",
+          "qty": 1.5,
+          "unit": "cup"
+        },
+        {
+          "item": "salt",
+          "qty": 0.5,
+          "unit": "tsp"
+        },
+        {
+          "item": "black pepper",
+          "qty": null,
+          "unit": null
+        },
+        {
+          "item": "parmesan cheese",
+          "qty": 0.75,
+          "unit": "cup"
+        },
+        {
+          "item": "frozen spinach",
+          "qty": 250,
+          "unit": "g"
+        },
+        {
+          "item": "parmesan cheese",
+          "qty": null,
+          "unit": null,
+          "optional": true
+        },
+        {
+          "item": "parsley",
+          "qty": null,
+          "unit": null,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "slug": "spinach-ricotta-pasta-bake",
+      "title": "Spinach & Ricotta Pasta Bake",
+      "image": "https://www.recipetineats.com/tachyon/2015/09/Spinach-Ricotta-Pasta-Bake_2.jpg",
+      "time": {
+        "label": "55 min",
+        "minutes": 55
+      },
+      "servings": "6",
+      "source": {
+        "name": "Nagi Maehashi",
+        "from": "recipetineats.com",
+        "url": "https://www.recipetineats.com/spinach-ricotta-pasta-bake/",
+        "type": "url"
+      },
+      "video": "https://www.youtube.com/watch?v=6a-bbbxEHxg",
+      "tags": [
+        "pasta",
+        "horno",
+        "vegetariano",
+        "ricotta",
+        "espinaca"
+      ],
+      "language": "en",
+      "dateAdded": "2026-10-12",
+      "cookSoon": false,
+      "ingredients": [
+        {
+          "item": "ziti pasta",
+          "qty": 300,
+          "unit": "g"
+        },
+        {
+          "item": "mozzarella cheese",
+          "qty": 1.5,
+          "unit": "cup"
+        },
+        {
+          "item": "ricotta",
+          "qty": 500,
+          "unit": "g"
+        },
+        {
+          "item": "parmesan cheese",
+          "qty": 0.5,
+          "unit": "cup"
+        },
+        {
+          "item": "garlic",
+          "qty": 2,
+          "unit": "clove"
+        },
+        {
+          "item": "frozen chopped spinach",
+          "qty": 350,
+          "unit": "g"
+        },
+        {
+          "item": "mozzarella cheese",
+          "qty": 1,
+          "unit": "cup"
+        },
+        {
+          "item": "salt",
+          "qty": 0.75,
+          "unit": "tsp"
+        },
+        {
+          "item": "black pepper",
+          "qty": null,
+          "unit": null
+        },
+        {
+          "item": "extra virgin olive oil",
+          "qty": 1,
+          "unit": "tbsp"
+        },
+        {
+          "item": "garlic",
+          "qty": 2,
+          "unit": "clove"
+        },
+        {
+          "item": "tomato passata",
+          "qty": 700,
+          "unit": "g"
+        },
+        {
+          "item": "onion powder",
+          "qty": 1,
+          "unit": "tsp"
+        },
+        {
+          "item": "garlic powder",
+          "qty": 1,
+          "unit": "tsp"
+        },
+        {
+          "item": "dried Italian mixed herbs",
+          "qty": 2,
+          "unit": "tsp"
+        },
+        {
+          "item": "dried chili flakes",
+          "qty": 0.5,
+          "unit": "tsp",
+          "optional": true
+        },
+        {
+          "item": "sugar",
+          "qty": 1,
+          "unit": "tsp"
+        },
+        {
+          "item": "salt",
+          "qty": 1,
+          "unit": "tsp"
+        },
+        {
+          "item": "black pepper",
+          "qty": null,
+          "unit": null
+        },
+        {
+          "item": "water",
+          "qty": 2,
+          "unit": "tbsp"
+        },
+        {
+          "item": "parmesan cheese",
+          "qty": null,
+          "unit": null
+        }
+      ]
+    },
+    {
+      "slug": "roast-pumpkin-spinach-feta-salad",
+      "title": "Roast Pumpkin, Spinach and Feta Salad",
+      "image": "https://www.recipetineats.com/tachyon/2017/09/Roasted-Pumpkin-Spinach-Salad-2.jpg",
+      "time": {
+        "label": "35 min",
+        "minutes": 35
+      },
+      "servings": "4–5",
+      "source": {
+        "name": "Nagi Maehashi",
+        "from": "recipetineats.com",
+        "url": "https://www.recipetineats.com/roast-pumpkin-spinach-and-feta-salad/",
+        "type": "url"
+      },
+      "video": "https://www.youtube.com/watch?v=fPtJwKRpBqQ",
+      "tags": [
+        "ensalada",
+        "vegetariano",
+        "zapallo",
+        "espinaca",
+        "feta"
+      ],
+      "language": "en",
+      "dateAdded": "2026-10-12",
+      "cookSoon": false,
+      "ingredients": [
+        {
+          "item": "pumpkin",
+          "qty": 600,
+          "unit": "g"
+        },
+        {
+          "item": "olive oil",
+          "qty": 1.5,
+          "unit": "tbsp"
+        },
+        {
+          "item": "salt",
+          "qty": null,
+          "unit": null
+        },
+        {
+          "item": "black pepper",
+          "qty": null,
+          "unit": null
+        },
+        {
+          "item": "extra virgin olive oil",
+          "qty": 50,
+          "unit": "ml"
+        },
+        {
+          "item": "balsamic vinegar",
+          "qty": 2,
+          "unit": "tbsp"
+        },
+        {
+          "item": "honey",
+          "qty": 1,
+          "unit": "tbsp"
+        },
+        {
+          "item": "salt",
+          "qty": null,
+          "unit": null
+        },
+        {
+          "item": "black pepper",
+          "qty": null,
+          "unit": null
+        },
+        {
+          "item": "pine nuts",
+          "qty": 35,
+          "unit": "g"
+        },
+        {
+          "item": "baby spinach",
+          "qty": 150,
+          "unit": "g"
+        },
+        {
+          "item": "feta",
+          "qty": 60,
+          "unit": "g"
         }
       ]
     }
