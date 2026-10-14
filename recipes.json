@@ -35,6 +35,7 @@
       "lentejas-puy",
       "papa",
       "pimenton-rojo",
+      "platano-macho",
       "pollo",
       "porotos-blancos",
       "porotos-canarios",
@@ -42,6 +43,7 @@
       "porotos-rojos",
       "puerro",
       "ricotta",
+      "tomate",
       "zanahoria",
       "zapallo",
       "zapallo-italiano"
@@ -1818,6 +1820,207 @@
           "item": "black pepper",
           "qty": null,
           "unit": null
+        }
+      ]
+    },
+    {
+      "slug": "smoky-black-bean-plantain-chili",
+      "title": "Smoky Black Bean and Plantain Chili",
+      "image": null,
+      "time": {
+        "label": "~40 min",
+        "minutes": 40
+      },
+      "servings": "4–6",
+      "source": {
+        "name": "Joe Yonan",
+        "from": "Cool Beans, p. 149–150",
+        "url": null,
+        "type": "book"
+      },
+      "video": null,
+      "tags": [
+        "guiso",
+        "vegetariano",
+        "legumbres",
+        "porotos-negros",
+        "platano-macho"
+      ],
+      "language": "en",
+      "dateAdded": "2026-10-14",
+      "cookSoon": false,
+      "ingredients": [
+        {
+          "item": "ripe plantains",
+          "qty": 3,
+          "unit": null
+        },
+        {
+          "item": "extra-virgin olive oil",
+          "qty": 2,
+          "unit": "tbsp"
+        },
+        {
+          "item": "yellow onion",
+          "qty": 1,
+          "unit": null
+        },
+        {
+          "item": "garlic",
+          "qty": 4,
+          "unit": "clove"
+        },
+        {
+          "item": "chipotles in adobo",
+          "qty": 3,
+          "unit": null
+        },
+        {
+          "item": "ground cumin",
+          "qty": 2,
+          "unit": "tsp"
+        },
+        {
+          "item": "smoked paprika",
+          "qty": 0.5,
+          "unit": "tsp"
+        },
+        {
+          "item": "kosher salt",
+          "qty": 1,
+          "unit": "tsp"
+        },
+        {
+          "item": "diced tomatoes",
+          "qty": 1,
+          "unit": "can"
+        },
+        {
+          "item": "black beans",
+          "qty": 2,
+          "unit": "can"
+        },
+        {
+          "item": "water",
+          "qty": 240,
+          "unit": "ml"
+        },
+        {
+          "item": "lime juice",
+          "qty": 2,
+          "unit": "tbsp"
+        },
+        {
+          "item": "cilantro",
+          "qty": 0.5,
+          "unit": "cup"
+        },
+        {
+          "item": "avocados",
+          "qty": 2,
+          "unit": null
+        },
+        {
+          "item": "scallions",
+          "qty": 3,
+          "unit": null
+        }
+      ]
+    },
+    {
+      "slug": "roasted-tomato-pepper-soup-lady-cream-peas",
+      "title": "Roasted Tomato and Pepper Soup with Lady Cream Peas",
+      "image": "assets/heroes/roasted-tomato-pepper-soup-lady-cream-peas.jpg",
+      "time": {
+        "label": "~1 h 15 min",
+        "minutes": 75
+      },
+      "servings": "4–6",
+      "source": {
+        "name": "Joe Yonan",
+        "from": "Cool Beans, p. 151–153",
+        "url": null,
+        "type": "book"
+      },
+      "video": null,
+      "tags": [
+        "sopa",
+        "vegetariano",
+        "legumbres",
+        "tomate",
+        "pimenton-rojo",
+        "porotos-blancos"
+      ],
+      "language": "en",
+      "dateAdded": "2026-10-14",
+      "cookSoon": false,
+      "ingredients": [
+        {
+          "item": "tomatoes",
+          "qty": 910,
+          "unit": "g"
+        },
+        {
+          "item": "red bell peppers",
+          "qty": 2,
+          "unit": null
+        },
+        {
+          "item": "garlic",
+          "qty": 6,
+          "unit": "clove"
+        },
+        {
+          "item": "white or yellow onion",
+          "qty": 1,
+          "unit": null
+        },
+        {
+          "item": "extra-virgin olive oil",
+          "qty": 60,
+          "unit": "ml"
+        },
+        {
+          "item": "kosher salt",
+          "qty": 1.5,
+          "unit": "tsp"
+        },
+        {
+          "item": "black pepper",
+          "qty": 0.5,
+          "unit": "tsp"
+        },
+        {
+          "item": "crushed red pepper flakes",
+          "qty": 0.5,
+          "unit": "tsp"
+        },
+        {
+          "item": "dried lady cream peas",
+          "qty": 1.5,
+          "unit": "cup"
+        },
+        {
+          "item": "water or vegetable broth",
+          "qty": 240,
+          "unit": "ml"
+        },
+        {
+          "item": "basil",
+          "qty": 0.5,
+          "unit": "cup"
+        },
+        {
+          "item": "sherry vinegar",
+          "qty": null,
+          "unit": null,
+          "optional": true
+        },
+        {
+          "item": "sugar",
+          "qty": null,
+          "unit": null,
+          "optional": true
         }
       ]
     }
