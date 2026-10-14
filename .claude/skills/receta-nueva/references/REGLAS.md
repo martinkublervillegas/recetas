@@ -46,7 +46,8 @@ Todo apilado. Nada de `display: grid` con columnas lado a lado, ni sidebars
 `position: sticky`. **Esta ya se rompió una vez** (el scallion tenía los
 ingredientes en una columna sticky de 260px a la izquierda).
 
-- [ ] No hay `grid-template-columns` con más de una columna
+- [ ] No hay `grid-template-columns` con más de una columna (la portada de la
+      regla 10 es la única excepción, y vive en el CSS)
 - [ ] No hay `position: sticky`
 - [ ] El HTML no trae `<style>` inline: todo sale de `../assets/recipe.css`
 
@@ -179,10 +180,15 @@ Referencia (no tocar): `--green: #3a7d44` · `--green-light: #eef5ef` ·
 
 ## 10. Imagen hero: la variante se mide, no se elige a ojo
 
-El hero por defecto es una franja full-bleed de 420px con `object-fit: cover`.
-Recorta la foto a una banda y la estira al ancho de la ventana. Eso funciona
-**solo** con fotos horizontales grandes. Una foto vertical se recorta al 30% de
-su alto y se amplía; el resultado se ve con zoom y borroso.
+Hay dos formas de abrir una receta con foto, y la elige la forma de la foto:
+
+- **Full-bleed** (`.recipe-hero`): franja de 420px a todo el ancho de la
+  ventana, con `object-fit: cover`. Recorta la foto a una banda y la estira.
+  Funciona **solo** con fotos horizontales grandes.
+- **Portada** (`.recipe-opening`): la foto va al lado del título, a su
+  proporción real, como abre la receta en el libro; en el celular se apila
+  arriba del título. Es la de las fotos verticales — casi todas las que vienen
+  de libros — y de las horizontales chicas.
 
 ```bash
 npm run hero -- <url-de-la-foto>
@@ -192,21 +198,41 @@ Devuelve las dimensiones y el bloque HTML que corresponde:
 
 | Foto | Variante | Markup |
 |---|---|---|
-| Horizontal y ≥ 1200px de ancho | full-bleed | `<div class="recipe-hero">` con una `<img>` |
-| Vertical, o < 1200px de ancho | contenida | `<div class="recipe-hero recipe-hero--contained">` con `.hero-backdrop` + `<img>` |
+| Horizontal y ≥ 1200px de ancho | full-bleed | `<div class="recipe-hero">` con una `<img>`, antes del `.recipe-header` |
+| Vertical, o < 1200px de ancho | portada | `<div class="recipe-opening">` que **envuelve** al `.recipe-header` |
 
-En la contenida la foto se muestra entera a su proporción, sobre una copia
-desenfocada de sí misma. La misma URL va en las dos `<img>`; la primera lleva
-`class="hero-backdrop"`, `alt=""` y `aria-hidden="true"`.
+En la portada, el `.recipe-header` completo (fuente, título, video, meta bar y
+botón Exportar PDF) va **adentro** del `.recipe-opening`, después de
+`<div class="recipe-opening__photo">` con su `<img>`. El `.recipe-opening` se
+cierra justo después del `</div><!-- /recipe-header -->`, antes del
+`.recipe-card`. Es una sola `<img>`: no hay copia desenfocada de fondo.
+
+La grilla de dos columnas de la portada vive en `assets/recipe.css` y es la
+única excepción a la regla 2: abarca solo foto y título, nunca ingredientes
+ni pasos, y colapsa a una columna bajo 720px. En el HTML de la receta no se
+escribe ninguna grilla.
+
+La variante vieja `recipe-hero--contained` (con `.hero-backdrop`) ya no tiene
+CSS: no usarla.
 
 Antes de dar por buena una URL de foto, revisa si el CDN de la fuente entrega
 una versión más grande (`?w=`, `?resize=`). Si no la hay, no la fuerces: subir
 de tamaño una imagen chica solo la empeora.
 
-- [ ] Se corrió `npm run hero` sobre la URL
-- [ ] La variante del HTML es la que indicó el comando
-- [ ] En la contenida, las dos `<img>` tienen la misma URL
-- [ ] El backdrop lleva `alt=""` y `aria-hidden="true"`
+**Foto sacada de un libro o PDF (sin URL).** `npm run hero` solo mide URLs
+remotas. La foto se extrae del PDF con `pymupdf` (`doc.extract_image(xref)`
+sobre las imágenes de `page.get_images()`), se mide con el mismo criterio de la
+tabla y se guarda en `assets/heroes/[slug].jpg`, reducida a unos 1100px de
+alto (JPEG calidad ~85, menos de 300 KB). La receta la referencia como
+`../assets/heroes/[slug].jpg` y el campo `image` del catálogo como
+`assets/heroes/[slug].jpg`. Archivo local, no base64 ni CDN ajeno: así el
+service worker la cachea y anda offline.
+
+- [ ] Se midió la foto (`npm run hero` si es URL; a mano si es un archivo local)
+- [ ] La variante del HTML es la que corresponde según la tabla
+- [ ] En la portada, el `.recipe-header` está adentro del `.recipe-opening`
+- [ ] No aparece `recipe-hero--contained` ni `hero-backdrop`
+- [ ] Foto local: está en `assets/heroes/[slug].jpg` y `image` apunta ahí
 
 **El lightbox (fuente = libro o PDF) no necesita un escaneo fotográfico.** Un
 PDF de texto sin ninguna imagen incrustada también califica: se rasterizan sus

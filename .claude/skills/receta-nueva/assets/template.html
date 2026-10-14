@@ -15,20 +15,23 @@
 <body>
 
   <!-- ══ HERO — OPCIONAL: borrar los dos bloques si no hay foto.
-       Si hay foto, correr `npm run hero -- <url>` y dejar la variante que
-       indique, borrando la otra. No elegir a ojo. ══ -->
+       Si hay foto, medirla (`npm run hero -- <url>`, o a mano si es un
+       archivo local) y dejar la variante que corresponda, borrando la otra.
+       No elegir a ojo. Ver regla 10. ══ -->
 
   <!-- Variante A: foto horizontal de 1200px de ancho o mas -->
   <div class="recipe-hero">
     <img src="[URL_IMAGEN]" alt="[TITULO]" />
   </div>
 
-  <!-- Variante B: foto vertical, o horizontal de menos de 1200px.
-       La misma URL va en las dos <img>: la primera es el fondo desenfocado. -->
-  <div class="recipe-hero recipe-hero--contained">
-    <img class="hero-backdrop" src="[URL_IMAGEN]" alt="" aria-hidden="true" />
-    <img src="[URL_IMAGEN]" alt="[TITULO]" />
-  </div>
+  <!-- Variante B (portada): foto vertical, o horizontal de menos de 1200px.
+       Este <div> ENVUELVE al recipe-header: se cierra mas abajo, despues de
+       el cierre del recipe-header. Si se usa la variante A o no hay foto,
+       borrar tambien ese cierre. Foto local: ../assets/heroes/[slug].jpg -->
+  <div class="recipe-opening">
+    <div class="recipe-opening__photo">
+      <img src="[URL_IMAGEN]" alt="[TITULO]" />
+    </div>
 
   <!-- ══ HEADER ══ -->
   <div class="recipe-header">
@@ -96,6 +99,9 @@
     </button>
 
   </div><!-- /recipe-header -->
+
+  <!-- Cierre de la variante B (portada). Borrar si no aplica. -->
+  </div><!-- /recipe-opening -->
 
   <!-- ══ BODY ══ -->
   <div class="recipe-card">

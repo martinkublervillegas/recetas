@@ -72,9 +72,11 @@ de usarla** (regla 10):
 npm run hero -- <url-de-la-foto>
 ```
 
-Te dice si va la variante full-bleed o la contenida, y te imprime el markup.
+Te dice si va la variante full-bleed o la portada, y te imprime el markup.
 Una foto vertical metida en el hero por defecto sale con zoom y borrosa. No lo
-decidas a ojo.
+decidas a ojo. Si la foto sale de un libro o PDF (sin URL), se extrae, se mide
+a mano y se guarda en `assets/heroes/[slug].jpg` — el detalle está en la
+regla 10.
 
 ### 2. Buscar el video, si aplica
 
@@ -117,7 +119,8 @@ tres variantes del bloque de fuente (URL / libro-PDF / ninguna): se deja una y
 se borran las otras.
 
 Al rellenar, ojo con:
-- Hero: dejar la variante que dijo `npm run hero`, borrar la otra (regla 10)
+- Hero: dejar la variante que corresponde, borrar la otra (regla 10). Si no
+  se usa la portada, borrar también su cierre `</div><!-- /recipe-opening -->`
 - Cantidades: tres casos según cómo venga la fuente (regla 4)
 - Ingredientes: lee los pasos y compáralos con la lista. Si el método usa
   algo que la lista no declara (vino blanco, un caldo alternativo), va a la
