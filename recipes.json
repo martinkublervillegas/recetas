@@ -7,7 +7,8 @@
       "noodles",
       "ensalada",
       "horno",
-      "dip"
+      "dip",
+      "hamburguesa"
     ],
     "base": [
       "vegetariano",
@@ -21,9 +22,11 @@
       "aji-amarillo",
       "betarraga",
       "burrata",
+      "camote",
       "carne-molida",
       "cebollin",
       "cerdo",
+      "chipotle",
       "esparragos",
       "espinaca",
       "feta",
@@ -2021,6 +2024,116 @@
           "qty": null,
           "unit": null,
           "optional": true
+        }
+      ]
+    },
+    {
+      "slug": "black-bean-chipotle-falafel-burgers",
+      "title": "Black Bean–Chipotle Falafel Burgers",
+      "image": null,
+      "time": {
+        "label": "~30 min + 2 h chilling",
+        "minutes": 150
+      },
+      "servings": "8 burgers",
+      "source": {
+        "name": "Joe Yonan",
+        "from": "Cool Beans, p. 224–225",
+        "url": null,
+        "type": "book"
+      },
+      "video": null,
+      "tags": [
+        "hamburguesa",
+        "vegetariano",
+        "legumbres",
+        "porotos-negros",
+        "camote",
+        "chipotle"
+      ],
+      "language": "en",
+      "dateAdded": "2026-10-14",
+      "cookSoon": false,
+      "ingredients": [
+        {
+          "item": "dried black beans",
+          "qty": 1,
+          "unit": "cup"
+        },
+        {
+          "item": "white onion",
+          "qty": 0.5,
+          "unit": "cup"
+        },
+        {
+          "item": "cilantro",
+          "qty": 0.5,
+          "unit": "cup"
+        },
+        {
+          "item": "garlic",
+          "qty": 4,
+          "unit": "clove"
+        },
+        {
+          "item": "kosher salt",
+          "qty": 2,
+          "unit": "tsp"
+        },
+        {
+          "item": "ground chipotle chile",
+          "qty": 2,
+          "unit": "tsp"
+        },
+        {
+          "item": "sweet potato",
+          "qty": 1,
+          "unit": "cup"
+        },
+        {
+          "item": "vegetable oil",
+          "qty": null,
+          "unit": null
+        },
+        {
+          "item": "burger buns",
+          "qty": 8,
+          "unit": null
+        },
+        {
+          "item": "chickpea aioli or mayonnaise",
+          "qty": 0.5,
+          "unit": "cup"
+        },
+        {
+          "item": "mustard",
+          "qty": null,
+          "unit": null
+        },
+        {
+          "item": "ketchup",
+          "qty": null,
+          "unit": null
+        },
+        {
+          "item": "romaine or iceberg lettuce",
+          "qty": 8,
+          "unit": "leaf"
+        },
+        {
+          "item": "avocados",
+          "qty": 2,
+          "unit": null
+        },
+        {
+          "item": "red onion",
+          "qty": 1,
+          "unit": null
+        },
+        {
+          "item": "tomatoes",
+          "qty": 2,
+          "unit": null
         }
       ]
     }

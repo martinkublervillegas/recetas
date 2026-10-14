@@ -49,7 +49,7 @@ El vocabulario vive en el bloque `tags` de `recipes.json` y es cerrado:
 tres ejes:
 
 - **`tipo`** — el formato del plato: `sopa`, `pasta`, `guiso`, `noodles`,
-  `ensalada`, `horno`, `dip`. Normalmente uno por receta.
+  `ensalada`, `horno`, `dip`, `hamburguesa`. Normalmente uno por receta.
 - **`base`** — qué sostiene el plato: `vegetariano`, `pollo`, `cerdo`, `vacuno`,
   `pescado`, `legumbres`. Es el grano grueso.
 - **`ingrediente`** — qué hay que comprar: los ingredientes protagonistas.
